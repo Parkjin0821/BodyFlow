@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "data": "예시 API 응답",
+  "checks": [
+    "approved-only server and UI",
+    "unauthenticated admin blocked",
+    "approve and revoke",
+    "official iframe only",
+    "separate exercise instructions",
+    "mobile width",
+    "no page errors"
+  ]
+}

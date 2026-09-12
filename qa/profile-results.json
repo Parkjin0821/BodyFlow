@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "data": "예시 입력",
+  "checks": [
+    "exactly 10 fields",
+    "exclusive pain none",
+    "pain warning",
+    "save and reload",
+    "export and import profile",
+    "legacy record import preserves profile",
+    "invalid profile atomic rejection",
+    "storage failure preserves data",
+    "edit saved profile",
+    "mobile width",
+    "no page errors"
+  ]
+}

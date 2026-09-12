@@ -1,0 +1,33 @@
+{
+  "kind": "sample-plan",
+  "label": "예시 데이터",
+  "start_date": "2026-09-07",
+  "meal_check": {"date":"2026-09-13","completed":2,"total":3},
+  "current_progress": {"week":1,"completed_sessions":2,"total_sessions":3},
+  "weeks": [
+    {"week":1,"sessions":[
+      {"day":"2026-09-07","warmup_min":5,"intervals":[{"activity":"walk","minutes":2},{"activity":"run","minutes":1},{"activity":"walk","minutes":2},{"activity":"run","minutes":1},{"activity":"walk","minutes":2},{"activity":"run","minutes":1},{"activity":"walk","minutes":2},{"activity":"run","minutes":1},{"activity":"walk","minutes":2},{"activity":"run","minutes":1}],"cooldown_min":5,"target_cadence":"170–180 spm","target_rpe":4,"note":"예시: 대화가 가능한 편안한 강도로 진행합니다."},
+      {"day":"2026-09-09","warmup_min":5,"intervals":[{"activity":"walk","minutes":2},{"activity":"run","minutes":1},{"activity":"walk","minutes":2},{"activity":"run","minutes":1},{"activity":"walk","minutes":2},{"activity":"run","minutes":1},{"activity":"walk","minutes":2},{"activity":"run","minutes":1},{"activity":"walk","minutes":2},{"activity":"run","minutes":1}],"cooldown_min":5,"target_cadence":"170–180 spm","target_rpe":4,"note":"예시: 대화가 가능한 편안한 강도로 진행합니다."},
+      {"day":"2026-09-13","warmup_min":5,"intervals":[{"activity":"walk","minutes":2},{"activity":"run","minutes":1},{"activity":"walk","minutes":2},{"activity":"run","minutes":1},{"activity":"walk","minutes":2},{"activity":"run","minutes":1},{"activity":"walk","minutes":2},{"activity":"run","minutes":1},{"activity":"walk","minutes":2},{"activity":"run","minutes":1}],"cooldown_min":5,"target_cadence":"170–180 spm","target_rpe":4,"note":"예시: 통증이 생기면 중단하고 쉬어 주세요."}
+    ]},
+    {"week":2,"sessions":[
+      {"day":"2026-09-14","warmup_min":5,"intervals":[{"activity":"walk","minutes":2},{"activity":"run","minutes":2},{"activity":"walk","minutes":2},{"activity":"run","minutes":2},{"activity":"walk","minutes":2},{"activity":"run","minutes":2},{"activity":"walk","minutes":2},{"activity":"run","minutes":1},{"activity":"walk","minutes":2}],"cooldown_min":5,"target_cadence":"170–180 spm","target_rpe":4,"note":"예시: 속도보다 일정한 리듬을 우선합니다."},
+      {"day":"2026-09-16","warmup_min":5,"intervals":[{"activity":"walk","minutes":2},{"activity":"run","minutes":2},{"activity":"walk","minutes":2},{"activity":"run","minutes":2},{"activity":"walk","minutes":2},{"activity":"run","minutes":2},{"activity":"walk","minutes":2},{"activity":"run","minutes":1},{"activity":"walk","minutes":2}],"cooldown_min":5,"target_cadence":"170–180 spm","target_rpe":4,"note":"예시: 속도보다 일정한 리듬을 우선합니다."},
+      {"day":"2026-09-20","warmup_min":5,"intervals":[{"activity":"walk","minutes":2},{"activity":"run","minutes":2},{"activity":"walk","minutes":2},{"activity":"run","minutes":2},{"activity":"walk","minutes":2},{"activity":"run","minutes":2},{"activity":"walk","minutes":2},{"activity":"run","minutes":1},{"activity":"walk","minutes":2}],"cooldown_min":5,"target_cadence":"170–180 spm","target_rpe":4,"note":"예시: 속도보다 일정한 리듬을 우선합니다."}
+    ]},
+    {"week":3,"sessions":[
+      {"day":"2026-09-21","warmup_min":5,"intervals":[{"activity":"walk","minutes":2},{"activity":"run","minutes":2},{"activity":"walk","minutes":2},{"activity":"run","minutes":2},{"activity":"walk","minutes":2},{"activity":"run","minutes":2},{"activity":"walk","minutes":2},{"activity":"run","minutes":2},{"activity":"walk","minutes":1},{"activity":"run","minutes":2}],"cooldown_min":5,"target_cadence":"170–180 spm","target_rpe":5,"note":"예시: 호흡을 확인하며 무리하지 않습니다."},
+      {"day":"2026-09-23","warmup_min":5,"intervals":[{"activity":"walk","minutes":2},{"activity":"run","minutes":2},{"activity":"walk","minutes":2},{"activity":"run","minutes":2},{"activity":"walk","minutes":2},{"activity":"run","minutes":2},{"activity":"walk","minutes":2},{"activity":"run","minutes":2},{"activity":"walk","minutes":1},{"activity":"run","minutes":2}],"cooldown_min":5,"target_cadence":"170–180 spm","target_rpe":5,"note":"예시: 호흡을 확인하며 무리하지 않습니다."},
+      {"day":"2026-09-27","warmup_min":5,"intervals":[{"activity":"walk","minutes":2},{"activity":"run","minutes":2},{"activity":"walk","minutes":2},{"activity":"run","minutes":2},{"activity":"walk","minutes":2},{"activity":"run","minutes":2},{"activity":"walk","minutes":2},{"activity":"run","minutes":2},{"activity":"walk","minutes":1},{"activity":"run","minutes":2}],"cooldown_min":5,"target_cadence":"170–180 spm","target_rpe":5,"note":"예시: 호흡을 확인하며 무리하지 않습니다."}
+    ]},
+    {"week":4,"sessions":[
+      {"day":"2026-09-28","warmup_min":5,"intervals":[{"activity":"walk","minutes":2},{"activity":"run","minutes":3},{"activity":"walk","minutes":2},{"activity":"run","minutes":3},{"activity":"walk","minutes":2},{"activity":"run","minutes":3},{"activity":"walk","minutes":2},{"activity":"run","minutes":3},{"activity":"walk","minutes":1}],"cooldown_min":5,"target_cadence":"170–180 spm","target_rpe":5,"note":"예시: 마지막까지 같은 강도를 유지합니다."},
+      {"day":"2026-09-30","warmup_min":5,"intervals":[{"activity":"walk","minutes":2},{"activity":"run","minutes":3},{"activity":"walk","minutes":2},{"activity":"run","minutes":3},{"activity":"walk","minutes":2},{"activity":"run","minutes":3},{"activity":"walk","minutes":2},{"activity":"run","minutes":3},{"activity":"walk","minutes":1}],"cooldown_min":5,"target_cadence":"170–180 spm","target_rpe":5,"note":"예시: 마지막까지 같은 강도를 유지합니다."},
+      {"day":"2026-10-04","warmup_min":5,"intervals":[{"activity":"walk","minutes":2},{"activity":"run","minutes":3},{"activity":"walk","minutes":2},{"activity":"run","minutes":3},{"activity":"walk","minutes":2},{"activity":"run","minutes":3},{"activity":"walk","minutes":2},{"activity":"run","minutes":3},{"activity":"walk","minutes":1}],"cooldown_min":5,"target_cadence":"170–180 spm","target_rpe":5,"note":"예시: 마지막까지 같은 강도를 유지합니다."}
+    ]}
+  ],
+  "change_history": [
+    {"date":"2026-09-07","week":1,"reason":"예시: 첫 4주 계획이 시작되었습니다."},
+    {"date":"2026-09-10","week":2,"reason":"예시: 일정을 확인하기 쉽도록 세션 날짜를 정리했습니다."}
+  ]
+}

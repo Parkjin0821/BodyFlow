@@ -1,0 +1,50 @@
+{
+  "repository": "https://github.com/Parkjin0821/lieflat-charts",
+  "commit": "eace082a317b696c5570c25826a53a7fa113e984",
+  "license": "PolyForm Noncommercial 1.0.0",
+  "method": "tools/build_chart_adapter.py extracts actual obsReveal callbacks and transforms explicit anchors; app/charts.js is generated, not independently redrawn.",
+  "charts": [
+    {
+      "key": "nutrition",
+      "id": "L15",
+      "file": "templates/lupi-gallery.html",
+      "svg": "ballottally"
+    },
+    {
+      "key": "calories",
+      "id": "F1",
+      "file": "templates/basics-gallery.html",
+      "svg": "rungs"
+    },
+    {
+      "key": "weight",
+      "id": "F2",
+      "file": "templates/basics-gallery.html",
+      "svg": "dayline"
+    },
+    {
+      "key": "recipe",
+      "id": "F4",
+      "file": "templates/basics-gallery.html",
+      "svg": "tickdonut"
+    },
+    {
+      "key": "pace",
+      "id": "F5",
+      "file": "templates/basics-gallery.html",
+      "svg": "tickrows"
+    },
+    {
+      "key": "activity",
+      "id": "F6",
+      "file": "templates/basics-gallery.html",
+      "svg": "pairrungs"
+    },
+    {
+      "key": "running",
+      "id": "F7",
+      "file": "templates/basics-gallery.html",
+      "svg": "stackrungs"
+    }
+  ]
+}

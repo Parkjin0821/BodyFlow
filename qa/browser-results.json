@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "checks": [
+    "7/30-day filter",
+    "missing-data line break",
+    "pointer value detail",
+    "theme switching",
+    "empty state",
+    "local save and reload",
+    "same-date update",
+    "over-target nutrition",
+    "invalid import preserves records",
+    "JSON export",
+    "mobile no page overflow",
+    "interval unit count"
+  ],
+  "pageErrors": []
+}

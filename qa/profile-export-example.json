@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "records": [],
+  "profile": {
+    "goal": "senior_health",
+    "age_band": "60s",
+    "sex": "female",
+    "running_experience": "none",
+    "height_cm": 160,
+    "weight_kg": 65,
+    "exercise_sessions_per_week": 2,
+    "continuous_walk_minutes": 30,
+    "rpe": 4,
+    "pain_areas": [
+      "knee"
+    ]
+  }
+}

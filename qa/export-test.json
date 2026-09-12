@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "records": [
+    {
+      "date": "2026-09-12",
+      "weight": 63.2,
+      "kcal": 1601,
+      "carbs": null,
+      "protein": 99,
+      "fat": null,
+      "strength": 30,
+      "cardio": null
+    }
+  ],
+  "profile": null
+}

@@ -1,0 +1,71 @@
+{
+  "screens": 64,
+  "actions": 248,
+  "reachableScreens": 64,
+  "broken": [],
+  "overflows": [],
+  "overlaps": [],
+  "charts": [
+    {
+      "id": "70:254",
+      "name": "Lieflat · L15 · nutrition / Light"
+    },
+    {
+      "id": "70:295",
+      "name": "Lieflat · F4 · recipe / light"
+    },
+    {
+      "id": "70:316",
+      "name": "Lieflat · F1 · calories / light"
+    },
+    {
+      "id": "70:532",
+      "name": "Lieflat · F2 · weight / light"
+    },
+    {
+      "id": "70:551",
+      "name": "Lieflat · F6 · activity / light"
+    },
+    {
+      "id": "70:582",
+      "name": "Lieflat · F7 · running / light"
+    },
+    {
+      "id": "70:609",
+      "name": "Lieflat · F5 · pace / light"
+    },
+    {
+      "id": "70:662",
+      "name": "Lieflat · L15 · nutrition / dark"
+    },
+    {
+      "id": "70:703",
+      "name": "Lieflat · F4 · recipe / dark"
+    },
+    {
+      "id": "70:724",
+      "name": "Lieflat · F1 · calories / dark"
+    },
+    {
+      "id": "70:940",
+      "name": "Lieflat · F2 · weight / dark"
+    },
+    {
+      "id": "70:959",
+      "name": "Lieflat · F6 · activity / dark"
+    },
+    {
+      "id": "70:990",
+      "name": "Lieflat · F7 · running / dark"
+    },
+    {
+      "id": "70:1017",
+      "name": "Lieflat · F5 · pace / dark"
+    }
+  ],
+  "actionTypes": {
+    "NODE": 248,
+    "URL": 2
+  },
+  "totalActions": 250
+}

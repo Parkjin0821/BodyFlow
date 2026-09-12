@@ -1,0 +1,35 @@
+const {chromium}=require('C:/Users/no32b/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const fs=require('fs'),path=require('path'),assert=require('assert');
+(async()=>{
+const browser=await chromium.launch({headless:true,channel:'chrome'});
+const context=await browser.newContext({viewport:{width:1440,height:1100},acceptDownloads:true,reducedMotion:'reduce'});
+const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
+await page.goto('file:///'+path.resolve('BodyFlow.html').replaceAll('\\','/'));
+await page.waitForFunction(()=>document.querySelectorAll('#recipe-chart line').length>90);
+assert.equal(await page.locator('#calories-title').textContent(),'기록일 평균 1,590 kcal');
+await page.locator('[data-tab=progress]').click();await page.locator('[data-days="30"]').click();
+assert((await page.locator('#weight-sub').textContent()).startsWith('30일'));
+assert.equal(await page.locator('[data-table="weight-chart"] tr').count(),31);
+await page.locator('#weight-chart [data-tip]').first().click();
+assert((await page.locator('[data-template=F2] .readout').textContent()).includes('kg'));
+await page.locator('[data-days="7"]').click();const line=await page.locator('#weight-chart path.draw').getAttribute('d');assert.equal((line.match(/M/g)||[]).length,2,'missing date must break the path');
+await page.locator('#theme').click();assert.equal(await page.locator('html').getAttribute('data-theme'),'dark');
+await page.locator('#own-mode').click();assert((await page.locator('#weight-chart').textContent()).includes('기록을 기다리고'));
+await page.locator('[data-tab=today]').click();await page.locator('#open-log').click();await page.locator('[name=date]').fill('2026-09-12');await page.locator('[name=weight]').fill('63.2');await page.locator('[name=kcal]').fill('1555');await page.locator('[name=protein]').fill('99');await page.locator('[name=strength]').fill('30');await page.locator('#log-form button[type=submit]').click();
+assert((await page.locator('#weight-title').textContent()).includes('63.2'));assert((await page.locator('#nutrition-chart').textContent()).includes('110%'));
+await page.reload();await page.locator('[data-tab=progress]').click();await page.locator('#own-mode').click();assert.equal(await page.locator('#calorie-total').textContent(),'1,555');
+await page.locator('[data-tab=today]').click();await page.locator('#open-log').click();assert.equal(await page.locator('[name=kcal]').inputValue(),'1555');await page.locator('[name=kcal]').fill('1601');await page.locator('#log-form button[type=submit]').click();
+const raw=await page.evaluate(()=>JSON.parse(localStorage.getItem('bodyflow.records.v1')));assert.equal(raw.records.length,1);assert.equal(raw.records[0].kcal,1601);
+await page.locator('#import-data').setInputFiles({name:'bad.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify({version:1,records:[{date:'2026-02-31',weight:64}]}))});assert((await page.locator('#storage-notice').textContent()).includes('실패'));
+assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('bodyflow.records.v1')).records.length),1);
+const download=page.waitForEvent('download');await page.locator('#export-data').click();const d=await download;const out=path.resolve('qa/export-test.json');fs.mkdirSync('qa',{recursive:true});await d.saveAs(out);assert.equal(JSON.parse(fs.readFileSync(out,'utf8')).records[0].kcal,1601);
+await page.locator('[data-tab=progress]').click();await page.locator('#demo-mode').click();await page.evaluate(()=>{storageWarning='';render()});await page.locator('[data-tab=progress]').click();await page.screenshot({path:'qa/desktop-dark.png',fullPage:true});
+await page.locator('#theme').click();await page.screenshot({path:'qa/desktop-light.png',fullPage:true});
+await page.setViewportSize({width:390,height:844});await page.screenshot({path:'qa/mobile-light.png',fullPage:true});
+assert(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth),'mobile page overflow');
+await page.locator('[data-tab=progress]').click();await page.screenshot({path:'qa/mobile-movement.png',fullPage:true});
+assert.equal(await page.locator('#running-chart line').count(),31,'30 activity-minute rungs plus baseline');
+const exports={};for(const theme of ['light','dark']){await page.evaluate(t=>{document.documentElement.dataset.theme=t;render()},theme);for(const id of ['nutrition','calories','recipe','weight','activity','running','pace']){let svg=await page.locator('#'+id+'-chart').evaluate(n=>{const s=n.cloneNode(true);s.setAttribute('xmlns','http://www.w3.org/2000/svg');s.setAttribute('width','400');s.setAttribute('height','320');s.querySelectorAll('*').forEach(q=>{q.removeAttribute('class');q.removeAttribute('style');q.removeAttribute('tabindex');q.removeAttribute('role');q.removeAttribute('aria-label');q.removeAttribute('data-tip');});s.querySelectorAll('text').forEach(q=>q.setAttribute('font-family','Noto Sans KR'));s.querySelectorAll('title').forEach(q=>q.remove());return new XMLSerializer().serializeToString(s)});fs.mkdirSync('assets/lieflat',{recursive:true});fs.writeFileSync('assets/lieflat/'+id+'-'+theme+'.svg',svg);}}
+assert.deepEqual(errors,[]);fs.writeFileSync('qa/browser-results.json',JSON.stringify({passed:true,checks:['7/30-day filter','missing-data line break','pointer value detail','theme switching','empty state','local save and reload','same-date update','over-target nutrition','invalid import preserves records','JSON export','mobile no page overflow','interval unit count'],pageErrors:errors},null,2));
+await browser.close();console.log('Browser checks passed; screenshots and actual rendered SVGs saved.');
+})().catch(e=>{console.error(e);process.exit(1)});

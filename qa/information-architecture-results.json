@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "data": "fixtures/sample-plan.json · 예시 데이터",
+  "checks": [
+    "three tabs",
+    "today content order",
+    "one primary action",
+    "48px start target",
+    "sample badge",
+    "session detail",
+    "four-week plan",
+    "progress and reasons",
+    "seven charts in changes",
+    "no home charts",
+    "mobile width",
+    "no page errors"
+  ]
+}

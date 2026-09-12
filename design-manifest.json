@@ -1,0 +1,151 @@
+{
+  "fileKey": "HgoIa0utwpiSp4pQlUPmTL",
+  "pageId": "55:2",
+  "light": {
+    "hub": "56:2",
+    "plan": "56:6",
+    "nutrition": "56:13",
+    "discover": "56:20",
+    "recipe": "56:27",
+    "ingredients": "56:34",
+    "cook": "56:41",
+    "shopping": "56:48",
+    "search": "56:55",
+    "generate": "56:62",
+    "log": "56:69",
+    "saved": "56:76",
+    "progress": "56:83",
+    "weight": "56:90",
+    "activity": "56:97",
+    "condition": "56:104",
+    "workout": "56:111",
+    "exercise": "56:118",
+    "running": "56:125",
+    "runresult": "56:132",
+    "library": "56:139",
+    "article": "56:146",
+    "settings": "56:153",
+    "empty": "56:160",
+    "error": "56:167",
+    "easy": "56:174",
+    "yogurt": "59:104",
+    "salad": "59:112",
+    "yogurt_log": "61:106",
+    "yogurt_saved": "61:127",
+    "salad_log": "61:149",
+    "salad_saved": "61:170"
+  },
+  "dark": {
+    "hub": "63:127",
+    "plan": "63:157",
+    "nutrition": "63:183",
+    "discover": "63:218",
+    "recipe": "63:254",
+    "ingredients": "63:285",
+    "cook": "63:304",
+    "shopping": "63:323",
+    "search": "63:342",
+    "generate": "63:364",
+    "log": "63:384",
+    "saved": "63:405",
+    "progress": "63:427",
+    "weight": "63:474",
+    "activity": "63:520",
+    "condition": "63:555",
+    "workout": "63:578",
+    "exercise": "63:602",
+    "running": "63:621",
+    "runresult": "63:661",
+    "library": "63:696",
+    "article": "63:719",
+    "settings": "63:738",
+    "empty": "63:761",
+    "error": "63:776",
+    "easy": "63:792",
+    "yogurt": "63:819",
+    "salad": "63:839",
+    "yogurt_log": "63:859",
+    "yogurt_saved": "63:878",
+    "salad_log": "63:900",
+    "salad_saved": "63:919"
+  },
+  "charts": [
+    "macro",
+    "recipe",
+    "calories",
+    "weight",
+    "activity",
+    "interval",
+    "pace"
+  ],
+  "recipeImages": {
+    "chicken": "ffa406ff693ad623fa0ee607f6ce02a51bfc0c17",
+    "yogurt": "3a9a7e1b97e053a6c259ff096144e7186975a496",
+    "salad": "8b68795257a226e1cf1f85bb8b6492fc82e1de46"
+  },
+  "status": {
+    "figma": "prototype",
+    "naverApi": "credentials required; not connected",
+    "adobe": "init failed; built-in imagegen used",
+    "localApp": "working offline web app; chart/record subset, not all 64 Figma screens",
+    "charts": "actual template callbacks extracted; 7 types, 14 Figma SVG instances"
+  },
+  "implementedChartNodes": [
+    {
+      "id": "70:254",
+      "name": "Lieflat · L15 · nutrition / Light"
+    },
+    {
+      "id": "70:295",
+      "name": "Lieflat · F4 · recipe / light"
+    },
+    {
+      "id": "70:316",
+      "name": "Lieflat · F1 · calories / light"
+    },
+    {
+      "id": "70:532",
+      "name": "Lieflat · F2 · weight / light"
+    },
+    {
+      "id": "70:551",
+      "name": "Lieflat · F6 · activity / light"
+    },
+    {
+      "id": "70:582",
+      "name": "Lieflat · F7 · running / light"
+    },
+    {
+      "id": "70:609",
+      "name": "Lieflat · F5 · pace / light"
+    },
+    {
+      "id": "70:662",
+      "name": "Lieflat · L15 · nutrition / dark"
+    },
+    {
+      "id": "70:703",
+      "name": "Lieflat · F4 · recipe / dark"
+    },
+    {
+      "id": "70:724",
+      "name": "Lieflat · F1 · calories / dark"
+    },
+    {
+      "id": "70:940",
+      "name": "Lieflat · F2 · weight / dark"
+    },
+    {
+      "id": "70:959",
+      "name": "Lieflat · F6 · activity / dark"
+    },
+    {
+      "id": "70:990",
+      "name": "Lieflat · F7 · running / dark"
+    },
+    {
+      "id": "70:1017",
+      "name": "Lieflat · F5 · pace / dark"
+    }
+  ]
+}
