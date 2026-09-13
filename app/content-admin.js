@@ -3,7 +3,7 @@
 const notice = document.querySelector('#admin-message'), host = document.querySelector('#admin-cards');
 async function request(path, body) {
   const response = await fetch(path, {method:body ? 'POST' : 'GET',cache:'no-store',headers:{'Authorization':'Bearer '+document.querySelector('#admin-token').value,'Content-Type':'application/json'},body:body ? JSON.stringify(body) : undefined});
-  const data = await response.json(); if (!response.ok) throw Error(data.error || '요청 실패'); return data;
+  const data = await response.json(); if (!response.ok) throw Error(data.error || '요청 오류'); return data;
 }
 async function loadCards() {
   host.replaceChildren();

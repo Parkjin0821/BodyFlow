@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "data": "예시 기록",
+  "checks": [
+    "seven summaries above charts",
+    "insufficient data copy",
+    "yesterday shortcut",
+    "eight-day return recommendation",
+    "no onboarding reset",
+    "delete confirmation",
+    "undo delete",
+    "undo latest input",
+    "no page errors"
+  ]
+}

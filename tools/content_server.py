@@ -36,7 +36,7 @@ def make_server(store, token, port=8765):
             if path == '/api/admin/cards':
                 return self.reply(200, store.list(True)) if self.authorized() else self.reply(401, {'error': '운영 인증이 필요합니다.'})
             public = {'/': ROOT/'app/index.html', '/admin': ROOT/'app/content-admin.html'}
-            for name in ('app.js', 'charts.js', 'presets.js', 'profile.js', 'plan.js', 'style.css', 'ia.css', 'tokens.css', 'accessibility.css', 'logging.css', 'content-cards.js', 'content-admin.js'):
+            for name in ('app.js', 'charts.js', 'presets.js', 'profile.js', 'insights.js', 'recovery.js', 'plan.js', 'style.css', 'ia.css', 'tokens.css', 'accessibility.css', 'logging.css', 'guidance.css', 'content-cards.js', 'content-admin.js'):
                 public['/'+name] = ROOT/'app'/name
             public['/assets/chicken-tofu-bowl.png'] = ROOT/'assets/chicken-tofu-bowl.png'
             public['/fixtures/sample-plan.json'] = ROOT/'fixtures/sample-plan.json'
@@ -68,7 +68,7 @@ def make_server(store, token, port=8765):
             except ValueError as error:
                 self.reply(400, {'error': str(error)})
             except Exception:
-                self.reply(502, {'error': 'API 수집 또는 저장에 실패했습니다. 인증·한도·네트워크를 확인하세요.'})
+                self.reply(502, {'error': 'API 수집 또는 저장을 완료하지 못했습니다. 인증·한도·네트워크를 확인하세요.'})
     return ThreadingHTTPServer(('127.0.0.1', port), Handler)
 
 if __name__ == '__main__':
