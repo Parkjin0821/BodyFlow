@@ -1,0 +1,23 @@
+// 탭 중심 기록 UI 회귀 검증. 고정 수치는 모두 테스트용 예시 입력이다.
+const {chromium}=require('C:/Users/no32b/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const assert=require('assert'),fs=require('fs'),path=require('path');
+const sampleProfile={goal:'diet',age_band:'30s',sex:'female',height_cm:165,weight_kg:64.2,exercise_sessions_per_week:3,continuous_walk_minutes:45,pain_areas:['none'],running_experience:'under_6_months',rpe:5};
+(async()=>{const browser=await chromium.launch({headless:true,channel:'chrome'});try{
+ const page=await browser.newPage({viewport:{width:390,height:844},acceptDownloads:true});const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ const url='file:///'+path.resolve('BodyFlow.html').replaceAll('\\','/');await page.goto(url);
+ await page.evaluate(profile=>{localStorage.setItem('bodyflow.records.v1',JSON.stringify({version:1,records:[{date:'2026-09-12',weight:64.2,kcal:1500}],profile}));},sampleProfile);await page.reload();
+ await page.locator('#open-log').click();assert.equal(await page.locator('#weight-value').textContent(),'64.2 kg');assert(!(await page.locator('#weight-direct').getAttribute('open')));
+ await page.locator('#weight-plus').click();assert.equal(await page.locator('[name=weight]').inputValue(),'64.3');await page.locator('[data-meal=normal]').click();await page.locator('[data-pain=knee]').click();await page.locator('[data-intensity=moderate]').click();await page.locator('[data-session=completed]').click();
+ const slider=page.locator('#session-rpe-range'),box=await slider.boundingBox();await slider.click({position:{x:box.width*.8,y:box.height/2}});await page.locator('.save-record').click();assert(!(await page.locator('#log-dialog').isVisible()),await page.locator('#form-message').textContent());
+ let saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('bodyflow.records.v1')));let record=saved.records.at(-1);assert.equal(record.weight,64.3);assert.equal(record.meal_amount,'normal');assert.deepEqual(record.pain_areas,['knee']);assert.equal(record.pain_intensity,'moderate');assert.equal(record.session_status,'completed');assert(Number.isInteger(record.session_rpe)&&record.session_rpe>=1&&record.session_rpe<=10);
+ // 식사량 버튼 하나만으로 새 기록이 유효해야 하며 표시된 기준 체중은 자동 저장하지 않는다.
+ await page.evaluate(profile=>{localStorage.setItem('bodyflow.records.v1',JSON.stringify({version:1,records:[],profile}));},sampleProfile);await page.reload();await page.locator('#open-log').click();await page.locator('[data-meal=low]').click();await page.locator('.save-record').click();saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('bodyflow.records.v1')));record=saved.records[0];assert.equal(record.meal_amount,'low');assert.equal(record.weight,null);
+ // 통증 없음과 세션 중단도 강도/RPE 또는 키보드 입력 없이 저장된다.
+ await page.locator('#open-log').click();await page.locator('[data-pain=none]').click();await page.locator('[data-session=stopped]').click();await page.locator('.save-record').click();record=(await page.evaluate(()=>JSON.parse(localStorage.getItem('bodyflow.records.v1')))).records[0];assert.deepEqual(record.pain_areas,['none']);assert.equal(record.pain_intensity,null);assert.equal(record.session_status,'stopped');assert.equal(record.session_rpe,null);
+ // 완료를 선택했지만 RPE 슬라이더를 건드리지 않으면 조용히 가짜 값을 저장하지 않는다.
+ await page.locator('#open-log').click();await page.locator('[data-session=completed]').click();await page.locator('.save-record').click();assert(await page.locator('#form-message').textContent().then(t=>t.includes('RPE 슬라이더')));assert(await page.locator('#log-dialog').isVisible());await page.locator('#close-log').click();
+ // 구형 version 1 JSON은 새 선택 필드가 없어도 그대로 읽힌다.
+ await page.locator('#import-data').setInputFiles({name:'legacy.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify({version:1,records:[{date:'2026-09-11',weight:63.9,kcal:1400}]}))});saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('bodyflow.records.v1')));assert(saved.records.some(r=>r.date==='2026-09-11'&&r.weight===63.9));
+ await page.locator('#open-log').click();await page.screenshot({path:'qa/tap-logging-mobile.png',fullPage:true});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));assert.deepEqual(errors,[]);
+ fs.writeFileSync('qa/tap-logging-results.json',JSON.stringify({passed:true,data:'예시 입력',checks:['last weight default','0.1 kg stepper','meal button-only save','silhouette pain selection','three-level pain intensity','three session outcomes','completed session RPE slider','no silent RPE default','legacy v1 JSON import','mobile width','no page errors']},null,2));
+}finally{await browser.close();}})().catch(e=>{console.error(e);process.exit(1)});

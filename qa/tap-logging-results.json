@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "data": "예시 입력",
+  "checks": [
+    "last weight default",
+    "0.1 kg stepper",
+    "meal button-only save",
+    "silhouette pain selection",
+    "three-level pain intensity",
+    "three session outcomes",
+    "completed session RPE slider",
+    "no silent RPE default",
+    "legacy v1 JSON import",
+    "mobile width",
+    "no page errors"
+  ]
+}

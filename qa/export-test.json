@@ -9,7 +9,12 @@
       "protein": 99,
       "fat": null,
       "strength": 30,
-      "cardio": null
+      "cardio": null,
+      "meal_amount": null,
+      "pain_intensity": null,
+      "session_status": null,
+      "pain_areas": [],
+      "session_rpe": null
     }
   ],
   "profile": null

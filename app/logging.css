@@ -1,0 +1,62 @@
+#log-dialog {
+  max-width: 620px;
+  padding: 0;
+}
+#log-form > .card-top,
+#log-form > p,
+#log-form > .record-date,
+#log-form > details,
+#log-form > #form-message,
+#log-form > .save-record {
+  margin-left: 24px;
+  margin-right: 24px;
+}
+#log-form > .card-top { padding-top: 22px; }
+#close-log { display: inline-flex; gap: 6px; align-items: center; }
+.tap-section { padding: 22px 24px; border-top: 1px solid var(--grid); }
+.tap-section h3 { font-size: var(--font-value); margin: 0; }
+.tap-help { margin: 2px 0 14px; }
+.weight-stepper {
+  display: grid;
+  grid-template-columns: minmax(76px, auto) 1fr minmax(76px, auto);
+  align-items: center;
+  gap: 12px;
+}
+.weight-stepper button { padding: 0 8px; font-size: 24px; border-radius: 14px; line-height: 1; }
+.weight-stepper button span { display: block; font-size: 10px; margin-top: 3px; }
+.weight-stepper output { text-align: center; font-size: 32px; font-weight: 800; }
+.tap-section input[type=range] { display: block; width: 100%; min-height: var(--touch-min); accent-color: var(--accent); }
+.tap-options { display: grid; gap: 8px; }
+.tap-options.three { grid-template-columns: repeat(3, 1fr); }
+.tap-options button,
+.none-option { min-height: var(--touch-min); border-radius: 14px; font-weight: 700; }
+.tap-options button[aria-pressed=true],
+.none-option[aria-pressed=true],
+.body-picker button[aria-pressed=true] { background: var(--ink); border-color: var(--ink); color: var(--surface); }
+.body-picker { position: relative; width: 260px; height: 310px; margin: 8px auto 12px; }
+.body-picker svg { position: absolute; inset: 0; margin: auto; width: 166px; height: 300px; fill: var(--pill); stroke: var(--grid); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+.body-picker button { position: absolute; z-index: 1; min-height: var(--touch-min); padding: 6px 14px; background: var(--surface); }
+.body-picker [data-pain=shoulder] { top: 55px; right: 0; }
+.body-picker [data-pain=back] { top: 130px; left: 0; }
+.body-picker [data-pain=knee] { top: 200px; right: 0; }
+.body-picker [data-pain=ankle] { bottom: 0; left: 0; }
+.none-option { display: block; width: 100%; }
+#pain-intensity,
+#session-rpe { margin-top: 16px; padding: 14px; background: var(--pill); border-radius: 16px; }
+#session-rpe label { font-size: var(--font-body); font-weight: 700; }
+#session-rpe output { font-size: var(--font-value); }
+#log-form summary { min-height: var(--touch-min); display: flex; align-items: center; }
+.save-record { margin-bottom: 24px !important; width: calc(100% - 48px) !important; min-height: 52px; }
+@media (max-width: 500px) {
+  #log-form > .card-top,
+  #log-form > p,
+  #log-form > .record-date,
+  #log-form > details,
+  #log-form > #form-message,
+  #log-form > .save-record { margin-left: 16px; margin-right: 16px; }
+  .tap-section { padding: 20px 16px; }
+  .save-record { width: calc(100% - 32px) !important; }
+  .tap-options.three { gap: 6px; }
+  .tap-options button { padding: 8px 5px; }
+  .body-picker { width: 240px; }
+}
