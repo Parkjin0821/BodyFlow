@@ -14,6 +14,7 @@ const assert=require('assert'),fs=require('fs');
   const admin=await context.newPage();await admin.goto(base+'/admin');await admin.locator('#load-cards').click();await admin.getByText('운영 인증이 필요합니다.',{exact:true}).waitFor();assert.equal(await admin.locator('#admin-cards article').count(),0);
   await admin.locator('#admin-token').fill(token);await admin.locator('#load-cards').click();await admin.waitForFunction(()=>document.querySelectorAll('#admin-cards article').length===4);
   await admin.locator(`[data-content-id="${pendingId}"] [data-status=approved]`).click();await admin.waitForFunction(id=>document.querySelector(`[data-content-id="${id}"] p`)?.textContent.includes('approved'),pendingId);
+  await page.waitForFunction(async()=>{const response=await fetch('/api/cards',{cache:'no-store'});return response.ok&&(await response.json()).length===3});
   await page.locator('#refresh-cards').click();await page.waitForFunction(()=>document.querySelectorAll('#content-card-list article').length===3);
   await admin.locator(`[data-content-id="${pendingId}"] [data-status=rejected]`).click();await admin.waitForFunction(id=>document.querySelector(`[data-content-id="${id}"] p`)?.textContent.includes('rejected'),pendingId);
   await page.locator('#refresh-cards').click();await page.waitForFunction(()=>document.querySelectorAll('#content-card-list article').length===2);
