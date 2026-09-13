@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "data": "예시 수행 기록",
+  "checks": [
+    "cumulative minutes instead of week progress",
+    "severe pain proposal",
+    "severe rejection warns once more",
+    "second rejection keeps baseline unchanged",
+    "accepted change persists with reason",
+    "running becomes walking",
+    "strength avoids pain area",
+    "non-severe rejection needs one confirmation",
+    "no discouraged wording",
+    "no page errors"
+  ]
+}

@@ -52,7 +52,7 @@ def make_server(store, token, port=8765, food_catalog=None):
             if path == '/api/admin/cards':
                 return self.reply(200, store.list(True)) if self.authorized() else self.reply(401, {'error': '운영 인증이 필요합니다.'})
             public = {'/': ROOT/'app/index.html', '/admin': ROOT/'app/content-admin.html'}
-            for name in ('app.js', 'charts.js', 'presets.js', 'profile.js', 'insights.js', 'recovery.js', 'plan.js', 'style.css', 'ia.css', 'tokens.css', 'accessibility.css', 'logging.css', 'guidance.css', 'food-search.css', 'content-cards.js', 'content-admin.js', 'food-search.js', 'record.js', 'quick-recording.js', 'voice-parser.js', 'voice-recording.js'):
+            for name in ('app.js', 'charts.js', 'presets.js', 'profile.js', 'insights.js', 'recovery.js', 'plan.js', 'style.css', 'ia.css', 'tokens.css', 'accessibility.css', 'logging.css', 'guidance.css', 'food-search.css', 'content-cards.js', 'content-admin.js', 'food-search.js', 'record.js', 'quick-recording.js', 'voice-parser.js', 'voice-recording.js', 'prescribe.js', 'adaptive-plan.js'):
                 public['/'+name] = ROOT/'app'/name
             public['/assets/chicken-tofu-bowl.png'] = ROOT/'assets/chicken-tofu-bowl.png'
             public['/fixtures/sample-plan.json'] = ROOT/'fixtures/sample-plan.json'

@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "data": "예시 수행 기록",
+  "simulations": [
+    {
+      "rule": 1,
+      "weeks": 12,
+      "trigger_count": 12,
+      "passed": true
+    },
+    {
+      "rule": 2,
+      "weeks": 12,
+      "trigger_count": 12,
+      "passed": true
+    },
+    {
+      "rule": 3,
+      "weeks": 12,
+      "trigger_count": 11,
+      "passed": true
+    },
+    {
+      "rule": 4,
+      "weeks": 12,
+      "trigger_count": 12,
+      "passed": true
+    },
+    {
+      "rule": 5,
+      "weeks": 12,
+      "trigger_count": 11,
+      "passed": true
+    }
+  ],
+  "checks": [
+    "severe pain outranks low RPE",
+    "repeated pain outranks high RPE",
+    "high RPE outranks skipped",
+    "all changes have reasons",
+    "weekly 10% and continuous-run 1.5x caps",
+    "recovery weeks preserved",
+    "repeated sessions add cumulative minutes",
+    "extendPlan uses logs"
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "passed": true,
   "method": "WCAG relative luminance; visible HTML and SVG text across 2 presets × 2 themes × 3 tabs",
-  "checked": 1376,
+  "checked": 1386,
   "uniquePairs": [
     {
       "preset": "senior_health",
@@ -100,7 +100,7 @@
       "background": "rgb(255,255,255)",
       "ratio": 6.47,
       "threshold": 3,
-      "text": "총 25분 · 준비 5분 / 본운동 15분 / 정리 5분"
+      "text": "총 15분 · 준비 3분 / 본운동 9분 / 정리 3분"
     },
     {
       "preset": "senior_health",
@@ -254,7 +254,7 @@
       "background": "rgb(24,32,25)",
       "ratio": 8.62,
       "threshold": 3,
-      "text": "총 25분 · 준비 5분 / 본운동 15분 / 정리 5분"
+      "text": "총 15분 · 준비 3분 / 본운동 9분 / 정리 3분"
     },
     {
       "preset": "senior_health",
