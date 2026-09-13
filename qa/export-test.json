@@ -6,6 +6,7 @@
       "weight": 63.2,
       "strength": 30,
       "cardio": null,
+      "meals": [],
       "food_combination": {
         "name": "예시 검증 조합",
         "items": [

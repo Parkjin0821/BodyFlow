@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "records": [
+    {
+      "date": "2026-09-12",
+      "weight": 64.2,
+      "strength": null,
+      "cardio": null,
+      "meals": [
+        {
+          "slot": "breakfast",
+          "amount": "normal",
+          "food_combination": null
+        },
+        {
+          "slot": "lunch",
+          "amount": "normal",
+          "food_combination": null
+        },
+        {
+          "slot": "dinner",
+          "amount": "normal",
+          "food_combination": null
+        }
+      ],
+      "food_combination": null,
+      "nutrition_source": null,
+      "kcal": null,
+      "carbs": null,
+      "protein": null,
+      "fat": null,
+      "sodium": null,
+      "meal_amount": "normal",
+      "pain_intensity": null,
+      "session_status": null,
+      "pain_areas": [],
+      "session_rpe": null
+    },
+    {
+      "date": "2026-09-13",
+      "weight": null,
+      "strength": null,
+      "cardio": null,
+      "meals": [
+        {
+          "slot": "lunch",
+          "amount": "normal",
+          "food_combination": null
+        }
+      ],
+      "food_combination": null,
+      "nutrition_source": null,
+      "kcal": null,
+      "carbs": null,
+      "protein": null,
+      "fat": null,
+      "sodium": null,
+      "meal_amount": "normal",
+      "pain_intensity": null,
+      "session_status": null,
+      "pain_areas": [],
+      "session_rpe": null
+    }
+  ],
+  "profile": {
+    "goal": "diet",
+    "age_band": "30s",
+    "sex": "female",
+    "running_experience": "none",
+    "height_cm": 165,
+    "weight_kg": 64.2,
+    "exercise_sessions_per_week": 2,
+    "continuous_walk_minutes": 30,
+    "rpe": 4,
+    "pain_areas": [
+      "none"
+    ]
+  }
+}

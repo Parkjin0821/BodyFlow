@@ -1,7 +1,7 @@
 {
   "passed": true,
   "method": "WCAG relative luminance; visible HTML and SVG text across 2 presets × 2 themes × 3 tabs",
-  "checked": 1316,
+  "checked": 1372,
   "uniquePairs": [
     {
       "preset": "senior_health",
@@ -117,23 +117,23 @@
       "preset": "senior_health",
       "theme": "light",
       "tab": "progress",
-      "element": "chart-summary",
-      "foreground": "rgb(24,56,43)",
-      "background": "rgb(224,232,218)",
-      "ratio": 10.2,
-      "threshold": 3,
-      "text": "예시 3 km 구간 기록은 9분 10초예요"
-    },
-    {
-      "preset": "senior_health",
-      "theme": "light",
-      "tab": "progress",
       "element": "button",
       "foreground": "rgb(255,255,255)",
       "background": "rgb(24,56,43)",
       "ratio": 12.81,
       "threshold": 4.5,
       "text": "7일"
+    },
+    {
+      "preset": "senior_health",
+      "theme": "light",
+      "tab": "progress",
+      "element": "chart-summary",
+      "foreground": "rgb(24,56,43)",
+      "background": "rgb(224,232,218)",
+      "ratio": 10.2,
+      "threshold": 3,
+      "text": "예시 3 km 구간 기록은 9분 10초예요"
     },
     {
       "preset": "senior_health",
@@ -271,23 +271,23 @@
       "preset": "senior_health",
       "theme": "dark",
       "tab": "progress",
-      "element": "chart-summary",
-      "foreground": "rgb(239,244,232)",
-      "background": "rgb(44,57,42)",
-      "ratio": 10.88,
-      "threshold": 3,
-      "text": "예시 3 km 구간 기록은 9분 10초예요"
-    },
-    {
-      "preset": "senior_health",
-      "theme": "dark",
-      "tab": "progress",
       "element": "button",
       "foreground": "rgb(24,32,25)",
       "background": "rgb(239,244,232)",
       "ratio": 14.91,
       "threshold": 4.5,
       "text": "7일"
+    },
+    {
+      "preset": "senior_health",
+      "theme": "dark",
+      "tab": "progress",
+      "element": "chart-summary",
+      "foreground": "rgb(239,244,232)",
+      "background": "rgb(44,57,42)",
+      "ratio": 10.88,
+      "threshold": 3,
+      "text": "예시 3 km 구간 기록은 9분 10초예요"
     },
     {
       "preset": "senior_health",
@@ -414,23 +414,23 @@
       "preset": "diet",
       "theme": "light",
       "tab": "progress",
-      "element": "chart-summary",
-      "foreground": "rgb(24,56,43)",
-      "background": "rgb(224,232,218)",
-      "ratio": 10.2,
-      "threshold": 3,
-      "text": "예시 3 km 구간 기록은 9분 10초예요"
-    },
-    {
-      "preset": "diet",
-      "theme": "light",
-      "tab": "progress",
       "element": "button",
       "foreground": "rgb(255,255,255)",
       "background": "rgb(24,56,43)",
       "ratio": 12.81,
       "threshold": 4.5,
       "text": "7일"
+    },
+    {
+      "preset": "diet",
+      "theme": "light",
+      "tab": "progress",
+      "element": "chart-summary",
+      "foreground": "rgb(24,56,43)",
+      "background": "rgb(224,232,218)",
+      "ratio": 10.2,
+      "threshold": 3,
+      "text": "예시 3 km 구간 기록은 9분 10초예요"
     },
     {
       "preset": "diet",
@@ -557,23 +557,23 @@
       "preset": "diet",
       "theme": "dark",
       "tab": "progress",
-      "element": "chart-summary",
-      "foreground": "rgb(239,244,232)",
-      "background": "rgb(44,57,42)",
-      "ratio": 10.88,
-      "threshold": 3,
-      "text": "예시 3 km 구간 기록은 9분 10초예요"
-    },
-    {
-      "preset": "diet",
-      "theme": "dark",
-      "tab": "progress",
       "element": "button",
       "foreground": "rgb(24,32,25)",
       "background": "rgb(239,244,232)",
       "ratio": 14.91,
       "threshold": 4.5,
       "text": "7일"
+    },
+    {
+      "preset": "diet",
+      "theme": "dark",
+      "tab": "progress",
+      "element": "chart-summary",
+      "foreground": "rgb(239,244,232)",
+      "background": "rgb(44,57,42)",
+      "ratio": 10.88,
+      "threshold": 3,
+      "text": "예시 3 km 구간 기록은 9분 10초예요"
     },
     {
       "preset": "diet",

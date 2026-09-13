@@ -1,0 +1,11 @@
+const assert=require('assert');
+const record=require('../app/record.js');
+const original=[{date:'2026-09-12',weight:64.2,meal_amount:'normal',meals:[{slot:'lunch',amount:'normal',food_combination:null}],session_status:'stopped',session_rpe:null}];
+const snapshot=JSON.stringify(original);
+const next=record.recordMealAmount(original,'2026-09-13','low','breakfast');assert.equal(next.at(-1).meals[0].slot,'breakfast');assert.equal(next.at(-1).meals[0].amount,'low');assert.equal(JSON.stringify(original),snapshot);
+const copied=record.copyYesterdayMeal(original,'2026-09-13','lunch');assert.equal(copied.at(-1).meals[0].amount,'normal');assert.equal(record.copyYesterdayMeal(original,'2026-09-13','dinner'),null);
+const weighed=record.recordWeight(original,'2026-09-12',64.3);assert.equal(weighed[0].weight,64.3);assert.equal(weighed[0].session_status,'stopped');
+const complete=record.recordSessionStatus(original,'2026-09-13','completed',7);assert.equal(complete.at(-1).session_rpe,7);assert.throws(()=>record.recordSessionStatus(original,'2026-09-13','completed'));
+assert.equal(record.recordPain(original,'2026-09-13',['knee'],'moderate').at(-1).pain_intensity,'moderate');assert.equal(record.recordPain(original,'2026-09-13',['none']).at(-1).pain_intensity,null);
+assert.equal(record.lastWeight(original),64.2);assert.deepEqual(record.restoreRecord(original,'2026-09-12',original[0]),original);assert.throws(()=>record.recordWeight(original,'2026-02-31',64));
+console.log('Record function checks passed: immutable updates, meal slots, copy, weight, session, pain, restore.');

@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "data": "예시 프로필·기록",
+  "measurement": "홈을 연 뒤 발생한 click 이벤트 수. 슬라이더 조작도 1탭에 포함.",
+  "results": [
+    {
+      "scenario": "식사 1회 간단 기록",
+      "target": 2,
+      "taps": 1,
+      "keyboard_events": 0,
+      "passed": true
+    },
+    {
+      "scenario": "체중 기록",
+      "target": 3,
+      "taps": 3,
+      "keyboard_events": 0,
+      "passed": true
+    },
+    {
+      "scenario": "세션 완료 처리",
+      "target": 2,
+      "taps": 2,
+      "keyboard_events": 0,
+      "passed": true
+    },
+    {
+      "scenario": "통증 기록",
+      "target": 3,
+      "taps": 3,
+      "keyboard_events": 0,
+      "passed": true
+    }
+  ],
+  "extra_checks": [
+    "yesterday same meal: 1 tap",
+    "frequent combinations: max 6 and 1 tap",
+    "JSON v1 export and import includes meal slots",
+    "no keyboard input",
+    "post-session pain prompt",
+    "no page errors"
+  ]
+}
