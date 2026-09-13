@@ -20,6 +20,7 @@ function validateProfile(value) {
   result.pain_areas=[...pain];return result;
 }
 function refreshProfileUI(){
+  applyGoalPreset(profile?.goal);
   const status=document.getElementById('profile-summary');if(!status)return;
   status.textContent=profile ? `${PROFILE_OPTIONS.goal[profile.goal]} · ${PROFILE_OPTIONS.age_band[profile.age_band]} · 프로필 저장됨` : '러닝·운동 계획을 위한 프로필을 입력해 주세요.';
   document.getElementById('open-profile').textContent=profile?'프로필 수정':'프로필 시작하기';

@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "data": "예시 프로필 · goal만 전환",
+  "checks": [
+    "senior tokens",
+    "48px touch",
+    "session above fold",
+    "safety placement",
+    "diet tokens",
+    "weight first",
+    "7-day average labels",
+    "seven shared charts",
+    "no icon-only button",
+    "no page errors"
+  ]
+}
