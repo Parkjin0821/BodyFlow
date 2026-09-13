@@ -6,12 +6,13 @@ import mimetypes
 import os
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from urllib.parse import urlsplit
+from urllib.parse import parse_qs, urlsplit
 from content_cards import CardStore, collect
+from food_catalog import FoodCache, FoodCatalog, load_env
 
 ROOT = Path(__file__).resolve().parents[1]
 
-def make_server(store, token, port=8765):
+def make_server(store, token, port=8765, food_catalog=None):
     if len(token) < 24:
         raise ValueError('BODYFLOW_ADMIN_TOKEN은 24자 이상 설정하세요.')
     class Handler(BaseHTTPRequestHandler):
@@ -30,13 +31,27 @@ def make_server(store, token, port=8765):
             return hmac.compare_digest(self.headers.get('Authorization', ''), 'Bearer ' + token)
 
         def do_GET(self):
-            path = urlsplit(self.path).path
+            parsed = urlsplit(self.path)
+            path = parsed.path
             if path == '/api/cards':
                 return self.reply(200, store.list())
+            if path == '/api/foods':
+                if food_catalog is None:
+                    return self.reply(503, {'error': '식약처 음식 검색이 설정되지 않았습니다.'})
+                query = parse_qs(parsed.query).get('query', [''])[0].strip()
+                if not query:
+                    return self.reply(400, {'error': '검색어를 입력해 주세요.'})
+                items, served_from = food_catalog.search(query, 20)
+                return self.reply(200, {'items': [item.public() for item in items], 'served_from': served_from})
+            if path == '/api/foods/recent':
+                if food_catalog is None:
+                    return self.reply(503, {'error': '식약처 음식 검색이 설정되지 않았습니다.'})
+                ids = parse_qs(parsed.query).get('id', [])[:20]
+                return self.reply(200, {'items': [item.public() for item in food_catalog.recent(ids)], 'served_from': 'cache'})
             if path == '/api/admin/cards':
                 return self.reply(200, store.list(True)) if self.authorized() else self.reply(401, {'error': '운영 인증이 필요합니다.'})
             public = {'/': ROOT/'app/index.html', '/admin': ROOT/'app/content-admin.html'}
-            for name in ('app.js', 'charts.js', 'presets.js', 'profile.js', 'insights.js', 'recovery.js', 'plan.js', 'style.css', 'ia.css', 'tokens.css', 'accessibility.css', 'logging.css', 'guidance.css', 'content-cards.js', 'content-admin.js'):
+            for name in ('app.js', 'charts.js', 'presets.js', 'profile.js', 'insights.js', 'recovery.js', 'plan.js', 'style.css', 'ia.css', 'tokens.css', 'accessibility.css', 'logging.css', 'guidance.css', 'food-search.css', 'content-cards.js', 'content-admin.js', 'food-search.js'):
                 public['/'+name] = ROOT/'app'/name
             public['/assets/chicken-tofu-bowl.png'] = ROOT/'assets/chicken-tofu-bowl.png'
             public['/fixtures/sample-plan.json'] = ROOT/'fixtures/sample-plan.json'
@@ -76,6 +91,9 @@ if __name__ == '__main__':
     parser.add_argument('--db', default=str(ROOT/'content-cards.sqlite3'))
     parser.add_argument('--port', type=int, default=8765)
     args = parser.parse_args()
-    server = make_server(CardStore(args.db), os.environ.get('BODYFLOW_ADMIN_TOKEN', ''), args.port)
+    load_env(ROOT/'.env')
+    food_cache = FoodCache(ROOT/'food-cache.sqlite3')
+    catalog = FoodCatalog(food_cache, os.environ.get('MFDS_SERVICE_KEY', ''))
+    server = make_server(CardStore(args.db), os.environ.get('BODYFLOW_ADMIN_TOKEN', ''), args.port, catalog)
     print(f'BodyFlow: http://127.0.0.1:{args.port} / 운영: /admin', flush=True)
     server.serve_forever()
