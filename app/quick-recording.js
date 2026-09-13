@@ -20,5 +20,6 @@
   const rpe=document.getElementById('quick-rpe-range');rpe.oninput=()=>document.getElementById('quick-rpe-value').textContent=rpe.value;rpe.onchange=()=>{sessionRpeSaved=save(BodyFlowRecord.recordSessionStatus(own,today(),'completed',Number(rpe.value)),'세션 완료와 RPE를 기록했어요.');if(sessionRpeSaved){document.querySelectorAll('[data-quick-pain]').forEach(button=>button.disabled=false);checkMessage.textContent='세션 완료를 저장했어요. 통증 여부도 한 번 확인해 주세요.'}};
   document.querySelectorAll('[data-quick-pain]').forEach(button=>button.onclick=()=>{chosenPain=button.dataset.quickPain;if(chosenPain==='none'){if(save(BodyFlowRecord.recordPain(own,today(),['none']),'통증 없음을 기록했어요.'))checkDialog.close()}else{intensity.hidden=false;checkMessage.textContent=`${button.textContent} 통증의 강도를 선택해 주세요.`}});
   document.querySelectorAll('[data-quick-intensity]').forEach(button=>button.onclick=()=>{if(!chosenPain)return;if(save(BodyFlowRecord.recordPain(own,today(),[chosenPain],button.dataset.quickIntensity),'통증을 기록했어요.'))checkDialog.close()});
+  window.BodyFlowQuickRecord={save,openSessionCompletion:()=>openPain(true)};
   renderQuickRecords();
 })();

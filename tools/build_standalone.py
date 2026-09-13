@@ -11,7 +11,7 @@ html=html.replace('<link rel="stylesheet" href="logging.css">','<style>'+(root/'
 html=html.replace('<link rel="stylesheet" href="guidance.css">','<style>'+(root/'app/guidance.css').read_text(encoding='utf-8')+'</style>')
 html=html.replace('<link rel="stylesheet" href="food-search.css">','<style>'+(root/'app/food-search.css').read_text(encoding='utf-8')+'</style>')
 fixture=(root/'fixtures/sample-plan.json').read_text(encoding='utf-8')
-for name in ['charts.js','presets.js','profile.js','record.js','food-search.js','app.js','quick-recording.js','insights.js','recovery.js','plan.js','content-cards.js']:
+for name in ['charts.js','presets.js','profile.js','record.js','voice-parser.js','food-search.js','app.js','quick-recording.js','voice-recording.js','insights.js','recovery.js','plan.js','content-cards.js']:
     code=(root/'app'/name).read_text(encoding='utf-8')
     if name=='plan.js': code='window.BODYFLOW_SAMPLE_PLAN='+fixture+';\n'+code
     html=html.replace(f'<script src="{name}"></script>','<script>'+code+'</script>')

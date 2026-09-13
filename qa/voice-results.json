@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "locale": "ko-KR",
+  "parser_variants": 20,
+  "checks": [
+    "four supported patterns",
+    "confirmation before save",
+    "unrecognized transcript stores nothing",
+    "unsupported browser hides button",
+    "transcript not persisted",
+    "completion continues to RPE",
+    "no page errors"
+  ]
+}
