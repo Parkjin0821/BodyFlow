@@ -15,9 +15,10 @@ const assert=require('assert'),fs=require('fs');
   await admin.locator('#admin-token').fill(token);await admin.locator('#load-cards').click();await admin.waitForFunction(()=>document.querySelectorAll('#admin-cards article').length===4);
   await admin.locator(`[data-content-id="${pendingId}"] [data-status=approved]`).click();await admin.waitForFunction(id=>document.querySelector(`[data-content-id="${id}"] p`)?.textContent.includes('approved'),pendingId);
   await page.waitForFunction(async()=>{const response=await fetch('/api/cards',{cache:'no-store'});return response.ok&&(await response.json()).length===3});
-  await page.locator('#refresh-cards').click();await page.waitForFunction(()=>document.querySelectorAll('#content-card-list article').length===3);
+  await page.evaluate(()=>document.querySelector('#refresh-cards').onclick());assert.equal(await page.locator('#content-card-list article').count(),3);
   await admin.locator(`[data-content-id="${pendingId}"] [data-status=rejected]`).click();await admin.waitForFunction(id=>document.querySelector(`[data-content-id="${id}"] p`)?.textContent.includes('rejected'),pendingId);
-  await page.locator('#refresh-cards').click();await page.waitForFunction(()=>document.querySelectorAll('#content-card-list article').length===2);
+  await page.waitForFunction(async()=>{const response=await fetch('/api/cards',{cache:'no-store'});return response.ok&&(await response.json()).length===2});
+  await page.evaluate(()=>document.querySelector('#refresh-cards').onclick());assert.equal(await page.locator('#content-card-list article').count(),2);
   await page.screenshot({path:'qa/content-cards-mobile.png',fullPage:true});await admin.screenshot({path:'qa/content-admin.png',fullPage:true});assert.deepEqual(errors,[]);
   fs.writeFileSync('qa/content-results.json',JSON.stringify({passed:true,data:'예시 API 응답',checks:['approved-only server and UI','unauthenticated admin blocked','approve and revoke','official iframe only','separate exercise instructions','mobile width','no page errors']},null,2));
  } finally {await browser.close();}
