@@ -64,7 +64,9 @@ const rows=weightRows(),N=rows.length;const val=d=>rows[d].weight;const valid=ro
 }
 
 function drawRecipe(s){
-const D=[['탄수',42,INK],['단백',33,SECOND],['지방',25,MUTED]];
+const row=latestRecord(),energy=[(row.carbs||0)*4,(row.protein||0)*4,(row.fat||0)*9],sum=energy.reduce((a,v)=>a+v,0)||1;
+const shares=energy.map(v=>Math.round(v/sum*100));shares[2]=100-shares[0]-shares[1];
+const D=[['탄수',shares[0],INK],['단백',shares[1],SECOND],['지방',shares[2],MUTED]];
 
   const cx=200,cy=148,R0=64;
   let k0=0;
@@ -93,9 +95,9 @@ const D=[['탄수',42,INK],['단백',33,SECOND],['지방',25,MUTED]];
     k0+=v;
   });
   txt(s,{x:cx,y:cy-2,'font-size':22,'font-weight':800,fill:INK,'text-anchor':'middle',
-    class:'fade',style:'animation-delay:.9s'},'510');
+    class:'fade',style:'animation-delay:.9s'},String(row.kcal));
   txt(s,{x:cx,y:cy+14,'font-size':11,'font-weight':600,fill:MUTED,'text-anchor':'middle',
-    'letter-spacing':'.1em',class:'fade',style:'animation-delay:.9s'},'kcal · 예시 한 그릇');
+    'letter-spacing':'.1em',class:'fade',style:'animation-delay:.9s'},'kcal · 식약처 구성값');
   txt(s,{x:200,y:296,'font-size':11,'font-weight':600,fill:MUTED,'text-anchor':'middle',
     'letter-spacing':'.12em',class:'fade',style:'animation-delay:1.1s'},
     '시계 방향 · 한 눈금 = 1% · 반올림한 구성비');

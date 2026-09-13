@@ -97,3 +97,14 @@ python -m unittest discover -s tools -p "test_*.py" -v
 ```
 
 API 인증 정보는 서버 환경변수로 설정하고 Figma·앱 프런트엔드·버전 관리에 넣지 않습니다.
+
+## 식약처 영양 데이터
+
+음식 영양값은 공공데이터포털의 `식품의약품안전처_식품영양성분DB정보`만 사용합니다. 사용자는 공식 음식 항목과 중량을 조합할 수 있으며 영양값 자체를 입력하거나 수정할 수 없습니다. 상세 결정은 [docs/ADR-001-mfds-nutrition-source.md](docs/ADR-001-mfds-nutrition-source.md)에 기록했습니다.
+
+1. 공공데이터포털에서 해당 OpenAPI 활용을 신청합니다.
+2. `.env.example`을 참고해 저장소 루트의 `.env`에 `MFDS_SERVICE_KEY`를 설정합니다. `.env`는 Git에서 제외됩니다.
+3. `BODYFLOW_ADMIN_TOKEN`을 24자 이상 환경변수로 설정한 뒤 `tools/content_server.py`를 실행합니다.
+4. `http://127.0.0.1:8765`에서 앱을 엽니다. API가 응답하지 않으면 이전에 공식 응답으로 채운 `food-cache.sqlite3`에서 검색합니다.
+
+초성 검색은 식약처 API 자체의 검색 조건이 아니므로 공식 응답으로 채운 로컬 캐시 인덱스에서 수행합니다. 캐시에 없는 음식은 값을 만들지 않으며 유사한 공식 캐시 항목만 제안합니다.

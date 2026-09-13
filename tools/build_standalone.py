@@ -9,8 +9,9 @@ html=html.replace('<link rel="stylesheet" href="tokens.css">','<style>'+(root/'a
 html=html.replace('<link rel="stylesheet" href="accessibility.css">','<style>'+(root/'app/accessibility.css').read_text(encoding='utf-8')+'</style>')
 html=html.replace('<link rel="stylesheet" href="logging.css">','<style>'+(root/'app/logging.css').read_text(encoding='utf-8')+'</style>')
 html=html.replace('<link rel="stylesheet" href="guidance.css">','<style>'+(root/'app/guidance.css').read_text(encoding='utf-8')+'</style>')
+html=html.replace('<link rel="stylesheet" href="food-search.css">','<style>'+(root/'app/food-search.css').read_text(encoding='utf-8')+'</style>')
 fixture=(root/'fixtures/sample-plan.json').read_text(encoding='utf-8')
-for name in ['charts.js','presets.js','profile.js','app.js','insights.js','recovery.js','plan.js','content-cards.js']:
+for name in ['charts.js','presets.js','profile.js','food-search.js','app.js','insights.js','recovery.js','plan.js','content-cards.js']:
     code=(root/'app'/name).read_text(encoding='utf-8')
     if name=='plan.js': code='window.BODYFLOW_SAMPLE_PLAN='+fixture+';\n'+code
     html=html.replace(f'<script src="{name}"></script>','<script>'+code+'</script>')

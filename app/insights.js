@@ -12,7 +12,7 @@ function caloriesSummary(){
   if(!values.length)return INSUFFICIENT_SUMMARY;
   return `최근 7일 기록일 평균은 ${Math.round(values.reduce((sum,value)=>sum+value,0)/values.length).toLocaleString()} kcal예요`;
 }
-function recipeSummary(){return '예시 한 그릇은 510 kcal이고 단백질은 42g이에요';}
+function recipeSummary(){const row=latestRecord();return row?.food_combination?`${row.food_combination.name}은 식약처 구성값으로 ${row.kcal} kcal예요`:INSUFFICIENT_SUMMARY;}
 function weightSummary(){
   const values=weightRows().filter(row=>row.weight!==null);
   if(values.length<2)return INSUFFICIENT_SUMMARY;

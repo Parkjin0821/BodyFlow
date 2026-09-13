@@ -42,7 +42,8 @@ def make_server(store, token, port=8765, food_catalog=None):
                 if not query:
                     return self.reply(400, {'error': '검색어를 입력해 주세요.'})
                 items, served_from = food_catalog.search(query, 20)
-                return self.reply(200, {'items': [item.public() for item in items], 'served_from': served_from})
+                suggestions = [] if items else food_catalog.cache.suggest(query, 3)
+                return self.reply(200, {'items': [item.public() for item in items], 'suggestions': [item.public() for item in suggestions], 'served_from': served_from})
             if path == '/api/foods/recent':
                 if food_catalog is None:
                     return self.reply(503, {'error': '식약처 음식 검색이 설정되지 않았습니다.'})

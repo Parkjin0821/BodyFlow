@@ -13,6 +13,7 @@ import os
 from pathlib import Path
 import re
 import sqlite3
+from difflib import SequenceMatcher
 from typing import Callable, Iterable
 from urllib.parse import urlencode
 from urllib.request import urlopen
@@ -147,6 +148,12 @@ class FoodCache:
                 f"FROM foods WHERE {field} LIKE ? ORDER BY CASE WHEN {field}=? THEN 0 ELSE 1 END, name LIMIT ?",
                 (f"%{needle}%", needle, limit),
             ).fetchall()
+            if not rows and field == "initials":
+                candidates = db.execute(
+                    "SELECT id,name,serving_size_g,kcal,carb_g,protein_g,fat_g,sodium_mg,source,source_id,fetched_at,initials FROM foods LIMIT 2000"
+                ).fetchall()
+                ranked = sorted(candidates, key=lambda row: SequenceMatcher(None, needle, row[11]).ratio(), reverse=True)
+                rows = [row[:11] for row in ranked if SequenceMatcher(None, needle, row[11]).ratio() >= .6][:limit]
         return [self._row(row) for row in rows]
 
     def by_ids(self, ids: list[str]) -> list[FoodItem]:
@@ -161,6 +168,17 @@ class FoodCache:
             ).fetchall()
         found = {row[0]: self._row(row) for row in rows}
         return [found[item_id] for item_id in clean if item_id in found]
+
+    def suggest(self, query: str, limit: int = 3) -> list[FoodItem]:
+        query = query.strip().casefold()
+        if not query:
+            return []
+        with closing(self._connect()) as db:
+            rows = db.execute(
+                "SELECT id,name,serving_size_g,kcal,carb_g,protein_g,fat_g,sodium_mg,source,source_id,fetched_at FROM foods LIMIT 2000"
+            ).fetchall()
+        ranked = sorted(rows, key=lambda row: SequenceMatcher(None, query, row[1].casefold()).ratio(), reverse=True)
+        return [self._row(row) for row in ranked[:limit]]
 
 
 FetchJson = Callable[[str, float], dict]
@@ -198,7 +216,7 @@ class FoodCatalog:
             "pageNo": 1,
             "numOfRows": min(max(limit, 3), 100),
             "FOOD_NM_KR": query,
-        })
+        }, safe="%")
         payload = self.fetcher(f"{MFDS_API_URL}?{params}", 2.5)
         return [map_mfds_row(row) for row in self._rows(payload)]
 

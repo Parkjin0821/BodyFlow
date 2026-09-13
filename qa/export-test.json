@@ -4,12 +4,42 @@
     {
       "date": "2026-09-12",
       "weight": 63.2,
-      "kcal": 1601,
-      "carbs": null,
-      "protein": 99,
-      "fat": null,
       "strength": 30,
       "cardio": null,
+      "food_combination": {
+        "name": "예시 검증 조합",
+        "items": [
+          {
+            "food": {
+              "id": "mfds:EXAMPLE-QA",
+              "name": "예시 검증 음식",
+              "serving_size_g": 100,
+              "kcal": 800.5,
+              "carb_g": 45,
+              "protein_g": 49.5,
+              "fat_g": 30,
+              "sodium_mg": 200,
+              "source": "mfds",
+              "source_id": "EXAMPLE-QA",
+              "fetched_at": "2026-09-13T00:00:00+00:00"
+            },
+            "amount_g": 210
+          }
+        ],
+        "totals": {
+          "kcal": 1681.1,
+          "carbs": 94.5,
+          "protein": 104,
+          "fat": 63,
+          "sodium": 420
+        }
+      },
+      "nutrition_source": "mfds",
+      "kcal": 1681.1,
+      "carbs": 94.5,
+      "protein": 104,
+      "fat": 63,
+      "sodium": 420,
       "meal_amount": null,
       "pain_intensity": null,
       "session_status": null,

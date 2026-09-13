@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "data": "식약처 형식 예시 응답",
+  "checks": [
+    "initial consonant search",
+    "under 3 seconds",
+    "API failure cache fallback",
+    "recent foods at top",
+    "combination calculation",
+    "MFDS badges",
+    "no nutrient inputs",
+    "missing item message",
+    "three similar suggestions",
+    "no page errors"
+  ]
+}

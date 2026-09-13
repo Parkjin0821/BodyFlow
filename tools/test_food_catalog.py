@@ -40,7 +40,7 @@ class FoodCatalogTests(unittest.TestCase):
         self.assertNotIn("IGNORED_FIELD", self.items[0].public())
 
     def test_choseong_search(self):
-        self.assertEqual(self.cache.search("ㄱㄱㅁ")[0].name, "고구마")
+        self.assertEqual(self.cache.search("ㄱㅁㅅ")[0].name, "고구마")
 
     def test_api_failure_uses_cache(self):
         def unavailable(_url, _timeout):

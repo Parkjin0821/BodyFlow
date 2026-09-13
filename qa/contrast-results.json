@@ -1,7 +1,7 @@
 {
   "passed": true,
   "method": "WCAG relative luminance; visible HTML and SVG text across 2 presets × 2 themes × 3 tabs",
-  "checked": 1428,
+  "checked": 1316,
   "uniquePairs": [
     {
       "preset": "senior_health",
