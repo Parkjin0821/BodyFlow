@@ -27,7 +27,7 @@ function activitySummary(){
   if(change===0)return '지난주와 이번 주의 총 운동 시간이 같아요';
   return `지난주보다 총 ${Math.abs(change)}분 ${change>0?'더':'덜'} 운동했어요`;
 }
-function runningSummary(){const rows=tableFor('running-chart').slice(1);if(!rows.length)return INSUFFICIENT_SUMMARY;const walk=rows.reduce((sum,row)=>sum+row[1],0),run=rows.reduce((sum,row)=>sum+row[2],0);return `예시 세션은 걷기 ${walk}분과 달리기 ${run}분으로 구성돼요`;}
+function runningSummary(){const info=runningStages();if(!info.stages)return info.rest?'이번 주는 쉬는 주간이라 걷기·달리기 세션이 없어요':'이번 주 계획에 걷기·달리기 세션이 없어요';const walk=info.stages.reduce((sum,[,segs])=>sum+segs[0],0),run=info.stages.reduce((sum,[,segs])=>sum+segs[1],0);return info.source==='plan'?`이번 주 계획 세션은 걷기 ${walk}분과 달리기 ${run}분으로 구성돼요`:`예시 세션은 걷기 ${walk}분과 달리기 ${run}분으로 구성돼요`;}
 function paceSummary(){const last=tableFor('pace-chart').slice(1).filter(row=>/^\d+ km$/.test(row[0])).at(-1);return last?`예시 ${last[0]} 구간 기록은 ${last[1]}예요`:INSUFFICIENT_SUMMARY;}
 
 const chartSummaryFunctions={

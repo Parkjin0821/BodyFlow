@@ -161,9 +161,9 @@ const D=activityPairs();if(rangeRows(14).every(r=>r.strength===null&&r.cardio===
 }
 
 function drawRunning(s){
-const D=[['준비',[5,0,0]],['본운동',[12,8,0]],['마무리',[5,0,0]]];const SHADE=[SECOND,INK,MUTED];const SEG=['걷기','달리기','기타'];
+const info=runningStages();if(!info.stages)return emptyChart(s);const D=info.stages;const SHADE=[SECOND,INK,MUTED];const SEG=['걷기','달리기','준비·정리'];
 
-  const x0=i=>70+i*128,base=262,step=9,HW=15;
+  const x0=i=>70+i*128,base=262,step=Math.min(9,225/Math.max(25,...D.map(([,segs])=>segs[0]+segs[1]+segs[2]))),HW=15;
   D.forEach(([name,segs],i)=>{
     const x=x0(i);let k0=0;
     segs.forEach((v,si)=>{if(!v)return;
@@ -188,7 +188,7 @@ const D=[['준비',[5,0,0]],['본운동',[12,8,0]],['마무리',[5,0,0]]];const 
   el(s,'line',{x1:36,y1:base+4,x2:364,y2:base+4,stroke:GRID,'stroke-width':.8,class:'fade'});
   txt(s,{x:200,y:306,'font-size':11,'font-weight':600,fill:MUTED,'text-anchor':'middle',
     'letter-spacing':'.12em',class:'fade',style:'animation-delay:1.1s'},
-    '한 줄 = 1분 · 걷기 22분 / 달리기 8분');
+    `한 줄 = 1분 · 걷기 ${D.reduce((sum,[,segs])=>sum+segs[0],0)}분 / 달리기 ${D.reduce((sum,[,segs])=>sum+segs[1],0)}분`+(D.some(([,segs])=>segs[2])?` / 준비·정리 ${D.reduce((sum,[,segs])=>sum+segs[2],0)}분`:''));
 }
 
 function drawNutrition(s){
