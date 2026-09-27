@@ -1,45 +1,2208 @@
 {
   "passed": true,
   "data": "예시 수행 기록",
-  "simulations": [
+  "method": "페르소나 6종이 각각 하나의 연속된 24주 기록 흐름을 가진다. 매주 그 주 계획의 세션마다 예시 기록을 만들고, 누적 기록으로 다음 주 조정을 계산한 뒤 조정안을 수락한 것으로 이어간다.",
+  "start_date": "2026-06-01",
+  "personas": [
     {
-      "rule": 1,
-      "weeks": 12,
-      "trigger_count": 12,
+      "id": "P1",
+      "name": "순조로운 시니어",
+      "profile": {
+        "goal": "senior_health",
+        "running_experience": "none"
+      },
+      "data": "예시 수행 기록",
+      "weeks": 24,
+      "trigger_total": 0,
+      "trigger_counts": {},
+      "triggered_weeks": [],
+      "safety_violations": [],
+      "timeline": [
+        {
+          "week": 1,
+          "next_week": 2,
+          "rule": null,
+          "reason": null,
+          "before_total": 74,
+          "after_total": 79.92,
+          "before_longest_run": 1,
+          "after_longest_run": 1.21,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 2,
+          "next_week": 3,
+          "rule": null,
+          "reason": null,
+          "before_total": 79.92,
+          "after_total": 86.32,
+          "before_longest_run": 1.21,
+          "after_longest_run": 1.45,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 3,
+          "next_week": 4,
+          "rule": null,
+          "reason": null,
+          "before_total": 86.32,
+          "after_total": 64.82,
+          "before_longest_run": 1.45,
+          "after_longest_run": 1.09,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 4,
+          "next_week": 5,
+          "rule": null,
+          "reason": null,
+          "before_total": 64.82,
+          "after_total": 70,
+          "before_longest_run": 1.09,
+          "after_longest_run": 1.29,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 5,
+          "next_week": 6,
+          "rule": null,
+          "reason": null,
+          "before_total": 70,
+          "after_total": 75.58,
+          "before_longest_run": 1.29,
+          "after_longest_run": 1.51,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 6,
+          "next_week": 7,
+          "rule": null,
+          "reason": null,
+          "before_total": 75.58,
+          "after_total": 81.64,
+          "before_longest_run": 1.51,
+          "after_longest_run": 1.76,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 7,
+          "next_week": 8,
+          "rule": null,
+          "reason": null,
+          "before_total": 81.64,
+          "after_total": 61.26,
+          "before_longest_run": 1.76,
+          "after_longest_run": 1.32,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 8,
+          "next_week": 9,
+          "rule": null,
+          "reason": null,
+          "before_total": 61.26,
+          "after_total": 66.18,
+          "before_longest_run": 1.32,
+          "after_longest_run": 1.53,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 9,
+          "next_week": 10,
+          "rule": null,
+          "reason": null,
+          "before_total": 66.18,
+          "after_total": 71.5,
+          "before_longest_run": 1.53,
+          "after_longest_run": 1.77,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 10,
+          "next_week": 11,
+          "rule": null,
+          "reason": null,
+          "before_total": 71.5,
+          "after_total": 77.2,
+          "before_longest_run": 1.77,
+          "after_longest_run": 2.04,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 11,
+          "next_week": 12,
+          "rule": null,
+          "reason": null,
+          "before_total": 77.2,
+          "after_total": 57.96,
+          "before_longest_run": 2.04,
+          "after_longest_run": 1.53,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 12,
+          "next_week": 13,
+          "rule": null,
+          "reason": null,
+          "before_total": 57.96,
+          "after_total": 62.54,
+          "before_longest_run": 1.53,
+          "after_longest_run": 1.52,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 13,
+          "next_week": 14,
+          "rule": null,
+          "reason": null,
+          "before_total": 62.54,
+          "after_total": 67.5,
+          "before_longest_run": 1.52,
+          "after_longest_run": 1.72,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 14,
+          "next_week": 15,
+          "rule": null,
+          "reason": null,
+          "before_total": 67.5,
+          "after_total": 72.9,
+          "before_longest_run": 1.72,
+          "after_longest_run": 1.94,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 15,
+          "next_week": 16,
+          "rule": null,
+          "reason": null,
+          "before_total": 72.9,
+          "after_total": 54.74,
+          "before_longest_run": 1.94,
+          "after_longest_run": 1.46,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 16,
+          "next_week": 17,
+          "rule": null,
+          "reason": null,
+          "before_total": 54.74,
+          "after_total": 59.18,
+          "before_longest_run": 1.46,
+          "after_longest_run": 1.39,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 17,
+          "next_week": 18,
+          "rule": null,
+          "reason": null,
+          "before_total": 59.18,
+          "after_total": 63.88,
+          "before_longest_run": 1.39,
+          "after_longest_run": 1.58,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 18,
+          "next_week": 19,
+          "rule": null,
+          "reason": null,
+          "before_total": 63.88,
+          "after_total": 69.02,
+          "before_longest_run": 1.58,
+          "after_longest_run": 1.79,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 19,
+          "next_week": 20,
+          "rule": null,
+          "reason": null,
+          "before_total": 69.02,
+          "after_total": 51.78,
+          "before_longest_run": 1.79,
+          "after_longest_run": 1.34,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 20,
+          "next_week": 21,
+          "rule": null,
+          "reason": null,
+          "before_total": 51.78,
+          "after_total": 55.96,
+          "before_longest_run": 1.34,
+          "after_longest_run": 1.26,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 21,
+          "next_week": 22,
+          "rule": null,
+          "reason": null,
+          "before_total": 55.96,
+          "after_total": 60.4,
+          "before_longest_run": 1.26,
+          "after_longest_run": 1.44,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 22,
+          "next_week": 23,
+          "rule": null,
+          "reason": null,
+          "before_total": 60.4,
+          "after_total": 65.32,
+          "before_longest_run": 1.44,
+          "after_longest_run": 1.64,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 23,
+          "next_week": 24,
+          "rule": null,
+          "reason": null,
+          "before_total": 65.32,
+          "after_total": 49.04,
+          "before_longest_run": 1.64,
+          "after_longest_run": 1.23,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 24,
+          "next_week": 25,
+          "rule": null,
+          "reason": null,
+          "before_total": 49.04,
+          "after_total": 52.96,
+          "before_longest_run": 1.23,
+          "after_longest_run": 1.14,
+          "recovery_week": false,
+          "rest_week": false
+        }
+      ]
+    },
+    {
+      "id": "P2",
+      "name": "무릎 재발형",
+      "profile": {
+        "goal": "diet",
+        "running_experience": "at_least_6_months"
+      },
+      "data": "예시 수행 기록",
+      "weeks": 24,
+      "trigger_total": 2,
+      "trigger_counts": {
+        "2": 2
+      },
+      "triggered_weeks": [
+        {
+          "week": 3,
+          "rule": 2,
+          "before_total": 100.32,
+          "after_total": 80.26,
+          "before_longest_run": 6,
+          "after_longest_run": 0
+        },
+        {
+          "week": 9,
+          "rule": 2,
+          "before_total": 81.72,
+          "after_total": 65.38,
+          "before_longest_run": 0,
+          "after_longest_run": 0
+        }
+      ],
+      "safety_violations": [],
+      "timeline": [
+        {
+          "week": 1,
+          "next_week": 2,
+          "rule": null,
+          "reason": null,
+          "before_total": 86,
+          "after_total": 92.88,
+          "before_longest_run": 5,
+          "after_longest_run": 5.48,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 2,
+          "next_week": 3,
+          "rule": null,
+          "reason": null,
+          "before_total": 92.88,
+          "after_total": 100.32,
+          "before_longest_run": 5.48,
+          "after_longest_run": 6,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 3,
+          "next_week": 4,
+          "rule": 2,
+          "reason": "무릎 통증이 최근 2주에 3번 기록되어 다음 계획을 걷기 위주로 바꾸고 총 시간을 20% 줄였어요.",
+          "before_total": 100.32,
+          "after_total": 80.26,
+          "before_longest_run": 6,
+          "after_longest_run": 0,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 4,
+          "next_week": 5,
+          "rule": null,
+          "reason": null,
+          "before_total": 80.26,
+          "after_total": 86.59,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 5,
+          "next_week": 6,
+          "rule": null,
+          "reason": null,
+          "before_total": 86.59,
+          "after_total": 93.47,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 6,
+          "next_week": 7,
+          "rule": null,
+          "reason": null,
+          "before_total": 93.47,
+          "after_total": 100.91,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 7,
+          "next_week": 8,
+          "rule": null,
+          "reason": null,
+          "before_total": 100.91,
+          "after_total": 75.7,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 8,
+          "next_week": 9,
+          "rule": null,
+          "reason": null,
+          "before_total": 75.7,
+          "after_total": 81.72,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 9,
+          "next_week": 10,
+          "rule": 2,
+          "reason": "무릎 통증이 최근 2주에 3번 기록되어 다음 계획을 걷기 위주로 바꾸고 총 시간을 20% 줄였어요.",
+          "before_total": 81.72,
+          "after_total": 65.38,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 10,
+          "next_week": 11,
+          "rule": null,
+          "reason": null,
+          "before_total": 65.38,
+          "after_total": 70.55,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 11,
+          "next_week": 12,
+          "rule": null,
+          "reason": null,
+          "before_total": 70.55,
+          "after_total": 53.02,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 12,
+          "next_week": 13,
+          "rule": null,
+          "reason": null,
+          "before_total": 53.02,
+          "after_total": 57.26,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 13,
+          "next_week": 14,
+          "rule": null,
+          "reason": null,
+          "before_total": 57.26,
+          "after_total": 61.8,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 14,
+          "next_week": 15,
+          "rule": null,
+          "reason": null,
+          "before_total": 61.8,
+          "after_total": 66.77,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 15,
+          "next_week": 16,
+          "rule": null,
+          "reason": null,
+          "before_total": 66.77,
+          "after_total": 50.11,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 16,
+          "next_week": 17,
+          "rule": null,
+          "reason": null,
+          "before_total": 50.11,
+          "after_total": 54.11,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 17,
+          "next_week": 18,
+          "rule": null,
+          "reason": null,
+          "before_total": 54.11,
+          "after_total": 58.42,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 18,
+          "next_week": 19,
+          "rule": null,
+          "reason": null,
+          "before_total": 58.42,
+          "after_total": 63.09,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 19,
+          "next_week": 20,
+          "rule": null,
+          "reason": null,
+          "before_total": 63.09,
+          "after_total": 47.35,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 20,
+          "next_week": 21,
+          "rule": null,
+          "reason": null,
+          "before_total": 47.35,
+          "after_total": 51.16,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 21,
+          "next_week": 22,
+          "rule": null,
+          "reason": null,
+          "before_total": 51.16,
+          "after_total": 55.21,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 22,
+          "next_week": 23,
+          "rule": null,
+          "reason": null,
+          "before_total": 55.21,
+          "after_total": 59.56,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 23,
+          "next_week": 24,
+          "rule": null,
+          "reason": null,
+          "before_total": 59.56,
+          "after_total": 44.62,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 24,
+          "next_week": 25,
+          "rule": null,
+          "reason": null,
+          "before_total": 44.62,
+          "after_total": 48.17,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": false,
+          "rest_week": false
+        }
+      ]
+    },
+    {
+      "id": "P3",
+      "name": "의욕 과다형",
+      "profile": {
+        "goal": "diet",
+        "running_experience": "at_least_6_months"
+      },
+      "data": "예시 수행 기록",
+      "weeks": 24,
+      "trigger_total": 5,
+      "trigger_counts": {
+        "3": 5
+      },
+      "triggered_weeks": [
+        {
+          "week": 2,
+          "rule": 3,
+          "before_total": 92.88,
+          "after_total": 92.88,
+          "before_longest_run": 5.48,
+          "after_longest_run": 5.56
+        },
+        {
+          "week": 3,
+          "rule": 3,
+          "before_total": 92.88,
+          "after_total": 69.68,
+          "before_longest_run": 5.56,
+          "after_longest_run": 4.17
+        },
+        {
+          "week": 4,
+          "rule": 3,
+          "before_total": 69.68,
+          "after_total": 69.68,
+          "before_longest_run": 4.17,
+          "after_longest_run": 3.95
+        },
+        {
+          "week": 5,
+          "rule": 3,
+          "before_total": 69.68,
+          "after_total": 69.68,
+          "before_longest_run": 3.95,
+          "after_longest_run": 3.96
+        },
+        {
+          "week": 6,
+          "rule": 3,
+          "before_total": 69.68,
+          "after_total": 69.68,
+          "before_longest_run": 3.96,
+          "after_longest_run": 3.97
+        }
+      ],
+      "safety_violations": [],
+      "timeline": [
+        {
+          "week": 1,
+          "next_week": 2,
+          "rule": null,
+          "reason": null,
+          "before_total": 86,
+          "after_total": 92.88,
+          "before_longest_run": 5,
+          "after_longest_run": 5.48,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 2,
+          "next_week": 3,
+          "rule": 3,
+          "reason": "최근 2주 동안 힘든 정도가 계속 높아 다음 계획의 운동 시간을 늘리지 않았어요.",
+          "before_total": 92.88,
+          "after_total": 92.88,
+          "before_longest_run": 5.48,
+          "after_longest_run": 5.56,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 3,
+          "next_week": 4,
+          "rule": 3,
+          "reason": "최근 2주 동안 힘든 정도가 계속 높아 다음 계획의 운동 시간을 늘리지 않았어요.",
+          "before_total": 92.88,
+          "after_total": 69.68,
+          "before_longest_run": 5.56,
+          "after_longest_run": 4.17,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 4,
+          "next_week": 5,
+          "rule": 3,
+          "reason": "최근 2주 동안 힘든 정도가 계속 높아 다음 계획의 운동 시간을 늘리지 않았어요.",
+          "before_total": 69.68,
+          "after_total": 69.68,
+          "before_longest_run": 4.17,
+          "after_longest_run": 3.95,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 5,
+          "next_week": 6,
+          "rule": 3,
+          "reason": "최근 2주 동안 힘든 정도가 계속 높아 다음 계획의 운동 시간을 늘리지 않았어요.",
+          "before_total": 69.68,
+          "after_total": 69.68,
+          "before_longest_run": 3.95,
+          "after_longest_run": 3.96,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 6,
+          "next_week": 7,
+          "rule": 3,
+          "reason": "최근 2주 동안 힘든 정도가 계속 높아 다음 계획의 운동 시간을 늘리지 않았어요.",
+          "before_total": 69.68,
+          "after_total": 69.68,
+          "before_longest_run": 3.96,
+          "after_longest_run": 3.97,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 7,
+          "next_week": 8,
+          "rule": null,
+          "reason": null,
+          "before_total": 69.68,
+          "after_total": 52.28,
+          "before_longest_run": 3.97,
+          "after_longest_run": 2.98,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 8,
+          "next_week": 9,
+          "rule": null,
+          "reason": null,
+          "before_total": 52.28,
+          "after_total": 56.52,
+          "before_longest_run": 2.98,
+          "after_longest_run": 2.98,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 9,
+          "next_week": 10,
+          "rule": null,
+          "reason": null,
+          "before_total": 56.52,
+          "after_total": 61.06,
+          "before_longest_run": 2.98,
+          "after_longest_run": 3.3,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 10,
+          "next_week": 11,
+          "rule": null,
+          "reason": null,
+          "before_total": 61.06,
+          "after_total": 65.9,
+          "before_longest_run": 3.3,
+          "after_longest_run": 3.64,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 11,
+          "next_week": 12,
+          "rule": null,
+          "reason": null,
+          "before_total": 65.9,
+          "after_total": 49.49,
+          "before_longest_run": 3.64,
+          "after_longest_run": 2.73,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 12,
+          "next_week": 13,
+          "rule": null,
+          "reason": null,
+          "before_total": 49.49,
+          "after_total": 53.47,
+          "before_longest_run": 2.73,
+          "after_longest_run": 2.76,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 13,
+          "next_week": 14,
+          "rule": null,
+          "reason": null,
+          "before_total": 53.47,
+          "after_total": 57.75,
+          "before_longest_run": 2.76,
+          "after_longest_run": 3.06,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 14,
+          "next_week": 15,
+          "rule": null,
+          "reason": null,
+          "before_total": 57.75,
+          "after_total": 62.33,
+          "before_longest_run": 3.06,
+          "after_longest_run": 3.38,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 15,
+          "next_week": 16,
+          "rule": null,
+          "reason": null,
+          "before_total": 62.33,
+          "after_total": 46.84,
+          "before_longest_run": 3.38,
+          "after_longest_run": 2.54,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 16,
+          "next_week": 17,
+          "rule": null,
+          "reason": null,
+          "before_total": 46.84,
+          "after_total": 50.57,
+          "before_longest_run": 2.54,
+          "after_longest_run": 2.55,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 17,
+          "next_week": 18,
+          "rule": null,
+          "reason": null,
+          "before_total": 50.57,
+          "after_total": 54.6,
+          "before_longest_run": 2.55,
+          "after_longest_run": 2.83,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 18,
+          "next_week": 19,
+          "rule": null,
+          "reason": null,
+          "before_total": 54.6,
+          "after_total": 58.95,
+          "before_longest_run": 2.83,
+          "after_longest_run": 3.14,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 19,
+          "next_week": 20,
+          "rule": null,
+          "reason": null,
+          "before_total": 58.95,
+          "after_total": 44.28,
+          "before_longest_run": 3.14,
+          "after_longest_run": 2.36,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 20,
+          "next_week": 21,
+          "rule": null,
+          "reason": null,
+          "before_total": 44.28,
+          "after_total": 47.81,
+          "before_longest_run": 2.36,
+          "after_longest_run": 2.36,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 21,
+          "next_week": 22,
+          "rule": null,
+          "reason": null,
+          "before_total": 47.81,
+          "after_total": 51.6,
+          "before_longest_run": 2.36,
+          "after_longest_run": 2.63,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 22,
+          "next_week": 23,
+          "rule": null,
+          "reason": null,
+          "before_total": 51.6,
+          "after_total": 55.69,
+          "before_longest_run": 2.63,
+          "after_longest_run": 2.92,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 23,
+          "next_week": 24,
+          "rule": null,
+          "reason": null,
+          "before_total": 55.69,
+          "after_total": 41.81,
+          "before_longest_run": 2.92,
+          "after_longest_run": 2.19,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 24,
+          "next_week": 25,
+          "rule": null,
+          "reason": null,
+          "before_total": 41.81,
+          "after_total": 45.19,
+          "before_longest_run": 2.19,
+          "after_longest_run": 2.18,
+          "recovery_week": false,
+          "rest_week": false
+        }
+      ]
+    },
+    {
+      "id": "P4",
+      "name": "간헐 이탈형",
+      "profile": {
+        "goal": "diet",
+        "running_experience": "at_least_6_months"
+      },
+      "data": "예시 수행 기록",
+      "weeks": 24,
+      "trigger_total": 2,
+      "trigger_counts": {
+        "4": 2
+      },
+      "triggered_weeks": [
+        {
+          "week": 4,
+          "rule": 4,
+          "before_total": 75.28,
+          "after_total": 75.28,
+          "before_longest_run": 4.5,
+          "after_longest_run": 4.5
+        },
+        {
+          "week": 10,
+          "rule": 4,
+          "before_total": 76.84,
+          "after_total": 76.84,
+          "before_longest_run": 4.36,
+          "after_longest_run": 4.36
+        }
+      ],
+      "safety_violations": [],
+      "timeline": [
+        {
+          "week": 1,
+          "next_week": 2,
+          "rule": null,
+          "reason": null,
+          "before_total": 86,
+          "after_total": 92.88,
+          "before_longest_run": 5,
+          "after_longest_run": 5.48,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 2,
+          "next_week": 3,
+          "rule": null,
+          "reason": null,
+          "before_total": 92.88,
+          "after_total": 100.32,
+          "before_longest_run": 5.48,
+          "after_longest_run": 6,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 3,
+          "next_week": 4,
+          "rule": null,
+          "reason": null,
+          "before_total": 100.32,
+          "after_total": 75.28,
+          "before_longest_run": 6,
+          "after_longest_run": 4.5,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 4,
+          "next_week": 5,
+          "rule": 4,
+          "reason": "최근 세션의 절반 이상을 건너뛰어 다음 계획을 같은 운동량으로 이어가요.",
+          "before_total": 75.28,
+          "after_total": 75.28,
+          "before_longest_run": 4.5,
+          "after_longest_run": 4.5,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 5,
+          "next_week": 6,
+          "rule": null,
+          "reason": null,
+          "before_total": 75.28,
+          "after_total": 81.3,
+          "before_longest_run": 4.5,
+          "after_longest_run": 4.67,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 6,
+          "next_week": 7,
+          "rule": null,
+          "reason": null,
+          "before_total": 81.3,
+          "after_total": 87.82,
+          "before_longest_run": 4.67,
+          "after_longest_run": 5.12,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 7,
+          "next_week": 8,
+          "rule": null,
+          "reason": null,
+          "before_total": 87.82,
+          "after_total": 65.86,
+          "before_longest_run": 5.12,
+          "after_longest_run": 3.84,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 8,
+          "next_week": 9,
+          "rule": null,
+          "reason": null,
+          "before_total": 65.86,
+          "after_total": 71.12,
+          "before_longest_run": 3.84,
+          "after_longest_run": 3.96,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 9,
+          "next_week": 10,
+          "rule": null,
+          "reason": null,
+          "before_total": 71.12,
+          "after_total": 76.84,
+          "before_longest_run": 3.96,
+          "after_longest_run": 4.36,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 10,
+          "next_week": 11,
+          "rule": 4,
+          "reason": "최근 세션의 절반 이상을 건너뛰어 다음 계획을 같은 운동량으로 이어가요.",
+          "before_total": 76.84,
+          "after_total": 76.84,
+          "before_longest_run": 4.36,
+          "after_longest_run": 4.36,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 11,
+          "next_week": 12,
+          "rule": null,
+          "reason": null,
+          "before_total": 76.84,
+          "after_total": 57.62,
+          "before_longest_run": 4.36,
+          "after_longest_run": 3.27,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 12,
+          "next_week": 13,
+          "rule": null,
+          "reason": null,
+          "before_total": 57.62,
+          "after_total": 62.22,
+          "before_longest_run": 3.27,
+          "after_longest_run": 3.34,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 13,
+          "next_week": 14,
+          "rule": null,
+          "reason": null,
+          "before_total": 62.22,
+          "after_total": 67.18,
+          "before_longest_run": 3.34,
+          "after_longest_run": 3.69,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 14,
+          "next_week": 15,
+          "rule": null,
+          "reason": null,
+          "before_total": 67.18,
+          "after_total": 72.6,
+          "before_longest_run": 3.69,
+          "after_longest_run": 4.07,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 15,
+          "next_week": 16,
+          "rule": null,
+          "reason": null,
+          "before_total": 72.6,
+          "after_total": 54.48,
+          "before_longest_run": 4.07,
+          "after_longest_run": 3.05,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 16,
+          "next_week": 17,
+          "rule": null,
+          "reason": null,
+          "before_total": 54.48,
+          "after_total": 58.78,
+          "before_longest_run": 3.05,
+          "after_longest_run": 3.1,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 17,
+          "next_week": 18,
+          "rule": null,
+          "reason": null,
+          "before_total": 58.78,
+          "after_total": 63.44,
+          "before_longest_run": 3.1,
+          "after_longest_run": 3.43,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 18,
+          "next_week": 19,
+          "rule": null,
+          "reason": null,
+          "before_total": 63.44,
+          "after_total": 68.54,
+          "before_longest_run": 3.43,
+          "after_longest_run": 3.78,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 19,
+          "next_week": 20,
+          "rule": null,
+          "reason": null,
+          "before_total": 68.54,
+          "after_total": 51.4,
+          "before_longest_run": 3.78,
+          "after_longest_run": 2.84,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 20,
+          "next_week": 21,
+          "rule": null,
+          "reason": null,
+          "before_total": 51.4,
+          "after_total": 55.5,
+          "before_longest_run": 2.84,
+          "after_longest_run": 2.88,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 21,
+          "next_week": 22,
+          "rule": null,
+          "reason": null,
+          "before_total": 55.5,
+          "after_total": 59.9,
+          "before_longest_run": 2.88,
+          "after_longest_run": 3.19,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 22,
+          "next_week": 23,
+          "rule": null,
+          "reason": null,
+          "before_total": 59.9,
+          "after_total": 64.76,
+          "before_longest_run": 3.19,
+          "after_longest_run": 3.53,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 23,
+          "next_week": 24,
+          "rule": null,
+          "reason": null,
+          "before_total": 64.76,
+          "after_total": 48.62,
+          "before_longest_run": 3.53,
+          "after_longest_run": 2.65,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 24,
+          "next_week": 25,
+          "rule": null,
+          "reason": null,
+          "before_total": 48.62,
+          "after_total": 52.56,
+          "before_longest_run": 2.65,
+          "after_longest_run": 2.67,
+          "recovery_week": false,
+          "rest_week": false
+        }
+      ]
+    },
+    {
+      "id": "P5",
+      "name": "저강도 정체형",
+      "profile": {
+        "goal": "diet",
+        "running_experience": "at_least_6_months"
+      },
+      "data": "예시 수행 기록",
+      "weeks": 24,
+      "trigger_total": 23,
+      "trigger_counts": {
+        "5": 23
+      },
+      "triggered_weeks": [
+        {
+          "week": 2,
+          "rule": 5,
+          "before_total": 92.88,
+          "after_total": 100.32,
+          "before_longest_run": 5.48,
+          "after_longest_run": 6
+        },
+        {
+          "week": 3,
+          "rule": 5,
+          "before_total": 100.32,
+          "after_total": 75.28,
+          "before_longest_run": 6,
+          "after_longest_run": 4.5
+        },
+        {
+          "week": 4,
+          "rule": 5,
+          "before_total": 75.28,
+          "after_total": 81.3,
+          "before_longest_run": 4.5,
+          "after_longest_run": 4.67
+        },
+        {
+          "week": 5,
+          "rule": 5,
+          "before_total": 81.3,
+          "after_total": 87.82,
+          "before_longest_run": 4.67,
+          "after_longest_run": 5.12
+        },
+        {
+          "week": 6,
+          "rule": 5,
+          "before_total": 87.82,
+          "after_total": 94.9,
+          "before_longest_run": 5.12,
+          "after_longest_run": 5.61
+        },
+        {
+          "week": 7,
+          "rule": 5,
+          "before_total": 94.9,
+          "after_total": 71.18,
+          "before_longest_run": 5.61,
+          "after_longest_run": 4.21
+        },
+        {
+          "week": 8,
+          "rule": 5,
+          "before_total": 71.18,
+          "after_total": 76.9,
+          "before_longest_run": 4.21,
+          "after_longest_run": 4.36
+        },
+        {
+          "week": 9,
+          "rule": 5,
+          "before_total": 76.9,
+          "after_total": 83.12,
+          "before_longest_run": 4.36,
+          "after_longest_run": 4.79
+        },
+        {
+          "week": 10,
+          "rule": 5,
+          "before_total": 83.12,
+          "after_total": 89.74,
+          "before_longest_run": 4.79,
+          "after_longest_run": 5.25
+        },
+        {
+          "week": 11,
+          "rule": 5,
+          "before_total": 89.74,
+          "after_total": 67.38,
+          "before_longest_run": 5.25,
+          "after_longest_run": 3.94
+        },
+        {
+          "week": 12,
+          "rule": 5,
+          "before_total": 67.38,
+          "after_total": 72.8,
+          "before_longest_run": 3.94,
+          "after_longest_run": 4.07
+        },
+        {
+          "week": 13,
+          "rule": 5,
+          "before_total": 72.8,
+          "after_total": 78.62,
+          "before_longest_run": 4.07,
+          "after_longest_run": 4.48
+        },
+        {
+          "week": 14,
+          "rule": 5,
+          "before_total": 78.62,
+          "after_total": 84.9,
+          "before_longest_run": 4.48,
+          "after_longest_run": 4.92
+        },
+        {
+          "week": 15,
+          "rule": 5,
+          "before_total": 84.9,
+          "after_total": 63.7,
+          "before_longest_run": 4.92,
+          "after_longest_run": 3.69
+        },
+        {
+          "week": 16,
+          "rule": 5,
+          "before_total": 63.7,
+          "after_total": 68.86,
+          "before_longest_run": 3.69,
+          "after_longest_run": 3.8
+        },
+        {
+          "week": 17,
+          "rule": 5,
+          "before_total": 68.86,
+          "after_total": 74.32,
+          "before_longest_run": 3.8,
+          "after_longest_run": 4.18
+        },
+        {
+          "week": 18,
+          "rule": 5,
+          "before_total": 74.32,
+          "after_total": 80.24,
+          "before_longest_run": 4.18,
+          "after_longest_run": 4.59
+        },
+        {
+          "week": 19,
+          "rule": 5,
+          "before_total": 80.24,
+          "after_total": 60.2,
+          "before_longest_run": 4.59,
+          "after_longest_run": 3.44
+        },
+        {
+          "week": 20,
+          "rule": 5,
+          "before_total": 60.2,
+          "after_total": 65.06,
+          "before_longest_run": 3.44,
+          "after_longest_run": 3.53
+        },
+        {
+          "week": 21,
+          "rule": 5,
+          "before_total": 65.06,
+          "after_total": 70.22,
+          "before_longest_run": 3.53,
+          "after_longest_run": 3.89
+        },
+        {
+          "week": 22,
+          "rule": 5,
+          "before_total": 70.22,
+          "after_total": 75.88,
+          "before_longest_run": 3.89,
+          "after_longest_run": 4.28
+        },
+        {
+          "week": 23,
+          "rule": 5,
+          "before_total": 75.88,
+          "after_total": 56.96,
+          "before_longest_run": 4.28,
+          "after_longest_run": 3.21
+        },
+        {
+          "week": 24,
+          "rule": 5,
+          "before_total": 56.96,
+          "after_total": 61.52,
+          "before_longest_run": 3.21,
+          "after_longest_run": 3.28
+        }
+      ],
+      "safety_violations": [],
+      "timeline": [
+        {
+          "week": 1,
+          "next_week": 2,
+          "rule": null,
+          "reason": null,
+          "before_total": 86,
+          "after_total": 92.88,
+          "before_longest_run": 5,
+          "after_longest_run": 5.48,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 2,
+          "next_week": 3,
+          "rule": 5,
+          "reason": "최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 10% 상한 안에서 천천히 늘려요.",
+          "before_total": 92.88,
+          "after_total": 100.32,
+          "before_longest_run": 5.48,
+          "after_longest_run": 6,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 3,
+          "next_week": 4,
+          "rule": 5,
+          "reason": "최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 예정된 회복 시간으로 이어가요.",
+          "before_total": 100.32,
+          "after_total": 75.28,
+          "before_longest_run": 6,
+          "after_longest_run": 4.5,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 4,
+          "next_week": 5,
+          "rule": 5,
+          "reason": "최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 10% 상한 안에서 천천히 늘려요.",
+          "before_total": 75.28,
+          "after_total": 81.3,
+          "before_longest_run": 4.5,
+          "after_longest_run": 4.67,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 5,
+          "next_week": 6,
+          "rule": 5,
+          "reason": "최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 10% 상한 안에서 천천히 늘려요.",
+          "before_total": 81.3,
+          "after_total": 87.82,
+          "before_longest_run": 4.67,
+          "after_longest_run": 5.12,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 6,
+          "next_week": 7,
+          "rule": 5,
+          "reason": "최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 10% 상한 안에서 천천히 늘려요.",
+          "before_total": 87.82,
+          "after_total": 94.9,
+          "before_longest_run": 5.12,
+          "after_longest_run": 5.61,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 7,
+          "next_week": 8,
+          "rule": 5,
+          "reason": "최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 예정된 회복 시간으로 이어가요.",
+          "before_total": 94.9,
+          "after_total": 71.18,
+          "before_longest_run": 5.61,
+          "after_longest_run": 4.21,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 8,
+          "next_week": 9,
+          "rule": 5,
+          "reason": "최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 10% 상한 안에서 천천히 늘려요.",
+          "before_total": 71.18,
+          "after_total": 76.9,
+          "before_longest_run": 4.21,
+          "after_longest_run": 4.36,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 9,
+          "next_week": 10,
+          "rule": 5,
+          "reason": "최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 10% 상한 안에서 천천히 늘려요.",
+          "before_total": 76.9,
+          "after_total": 83.12,
+          "before_longest_run": 4.36,
+          "after_longest_run": 4.79,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 10,
+          "next_week": 11,
+          "rule": 5,
+          "reason": "최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 10% 상한 안에서 천천히 늘려요.",
+          "before_total": 83.12,
+          "after_total": 89.74,
+          "before_longest_run": 4.79,
+          "after_longest_run": 5.25,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 11,
+          "next_week": 12,
+          "rule": 5,
+          "reason": "최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 예정된 회복 시간으로 이어가요.",
+          "before_total": 89.74,
+          "after_total": 67.38,
+          "before_longest_run": 5.25,
+          "after_longest_run": 3.94,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 12,
+          "next_week": 13,
+          "rule": 5,
+          "reason": "최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 10% 상한 안에서 천천히 늘려요.",
+          "before_total": 67.38,
+          "after_total": 72.8,
+          "before_longest_run": 3.94,
+          "after_longest_run": 4.07,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 13,
+          "next_week": 14,
+          "rule": 5,
+          "reason": "최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 10% 상한 안에서 천천히 늘려요.",
+          "before_total": 72.8,
+          "after_total": 78.62,
+          "before_longest_run": 4.07,
+          "after_longest_run": 4.48,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 14,
+          "next_week": 15,
+          "rule": 5,
+          "reason": "최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 10% 상한 안에서 천천히 늘려요.",
+          "before_total": 78.62,
+          "after_total": 84.9,
+          "before_longest_run": 4.48,
+          "after_longest_run": 4.92,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 15,
+          "next_week": 16,
+          "rule": 5,
+          "reason": "최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 예정된 회복 시간으로 이어가요.",
+          "before_total": 84.9,
+          "after_total": 63.7,
+          "before_longest_run": 4.92,
+          "after_longest_run": 3.69,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 16,
+          "next_week": 17,
+          "rule": 5,
+          "reason": "최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 10% 상한 안에서 천천히 늘려요.",
+          "before_total": 63.7,
+          "after_total": 68.86,
+          "before_longest_run": 3.69,
+          "after_longest_run": 3.8,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 17,
+          "next_week": 18,
+          "rule": 5,
+          "reason": "최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 10% 상한 안에서 천천히 늘려요.",
+          "before_total": 68.86,
+          "after_total": 74.32,
+          "before_longest_run": 3.8,
+          "after_longest_run": 4.18,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 18,
+          "next_week": 19,
+          "rule": 5,
+          "reason": "최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 10% 상한 안에서 천천히 늘려요.",
+          "before_total": 74.32,
+          "after_total": 80.24,
+          "before_longest_run": 4.18,
+          "after_longest_run": 4.59,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 19,
+          "next_week": 20,
+          "rule": 5,
+          "reason": "최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 예정된 회복 시간으로 이어가요.",
+          "before_total": 80.24,
+          "after_total": 60.2,
+          "before_longest_run": 4.59,
+          "after_longest_run": 3.44,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 20,
+          "next_week": 21,
+          "rule": 5,
+          "reason": "최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 10% 상한 안에서 천천히 늘려요.",
+          "before_total": 60.2,
+          "after_total": 65.06,
+          "before_longest_run": 3.44,
+          "after_longest_run": 3.53,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 21,
+          "next_week": 22,
+          "rule": 5,
+          "reason": "최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 10% 상한 안에서 천천히 늘려요.",
+          "before_total": 65.06,
+          "after_total": 70.22,
+          "before_longest_run": 3.53,
+          "after_longest_run": 3.89,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 22,
+          "next_week": 23,
+          "rule": 5,
+          "reason": "최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 10% 상한 안에서 천천히 늘려요.",
+          "before_total": 70.22,
+          "after_total": 75.88,
+          "before_longest_run": 3.89,
+          "after_longest_run": 4.28,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 23,
+          "next_week": 24,
+          "rule": 5,
+          "reason": "최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 예정된 회복 시간으로 이어가요.",
+          "before_total": 75.88,
+          "after_total": 56.96,
+          "before_longest_run": 4.28,
+          "after_longest_run": 3.21,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 24,
+          "next_week": 25,
+          "rule": 5,
+          "reason": "최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 10% 상한 안에서 천천히 늘려요.",
+          "before_total": 56.96,
+          "after_total": 61.52,
+          "before_longest_run": 3.21,
+          "after_longest_run": 3.28,
+          "recovery_week": false,
+          "rest_week": false
+        }
+      ]
+    },
+    {
+      "id": "P6",
+      "name": "복합 통증형",
+      "profile": {
+        "goal": "diet",
+        "running_experience": "at_least_6_months"
+      },
+      "data": "예시 수행 기록",
+      "weeks": 24,
+      "trigger_total": 3,
+      "trigger_counts": {
+        "1": 1,
+        "2": 2
+      },
+      "triggered_weeks": [
+        {
+          "week": 5,
+          "rule": 2,
+          "before_total": 81.3,
+          "after_total": 65.04,
+          "before_longest_run": 4.67,
+          "after_longest_run": 0
+        },
+        {
+          "week": 12,
+          "rule": 1,
+          "before_total": 49.82,
+          "after_total": 39.86,
+          "before_longest_run": 0,
+          "after_longest_run": 0
+        },
+        {
+          "week": 18,
+          "rule": 2,
+          "before_total": 40.83,
+          "after_total": 32.66,
+          "before_longest_run": 0,
+          "after_longest_run": 0
+        }
+      ],
+      "safety_violations": [],
+      "timeline": [
+        {
+          "week": 1,
+          "next_week": 2,
+          "rule": null,
+          "reason": null,
+          "before_total": 86,
+          "after_total": 92.88,
+          "before_longest_run": 5,
+          "after_longest_run": 5.48,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 2,
+          "next_week": 3,
+          "rule": null,
+          "reason": null,
+          "before_total": 92.88,
+          "after_total": 100.32,
+          "before_longest_run": 5.48,
+          "after_longest_run": 6,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 3,
+          "next_week": 4,
+          "rule": null,
+          "reason": null,
+          "before_total": 100.32,
+          "after_total": 75.28,
+          "before_longest_run": 6,
+          "after_longest_run": 4.5,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 4,
+          "next_week": 5,
+          "rule": null,
+          "reason": null,
+          "before_total": 75.28,
+          "after_total": 81.3,
+          "before_longest_run": 4.5,
+          "after_longest_run": 4.67,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 5,
+          "next_week": 6,
+          "rule": 2,
+          "reason": "무릎과 발목 통증이 최근 2주에 각각 3번 이상 기록되어 다음 계획을 걷기 위주로 바꾸고 총 시간을 20% 줄였어요.",
+          "before_total": 81.3,
+          "after_total": 65.04,
+          "before_longest_run": 4.67,
+          "after_longest_run": 0,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 6,
+          "next_week": 7,
+          "rule": null,
+          "reason": null,
+          "before_total": 65.04,
+          "after_total": 70.2,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 7,
+          "next_week": 8,
+          "rule": null,
+          "reason": null,
+          "before_total": 70.2,
+          "after_total": 52.69,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 8,
+          "next_week": 9,
+          "rule": null,
+          "reason": null,
+          "before_total": 52.69,
+          "after_total": 56.95,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 9,
+          "next_week": 10,
+          "rule": null,
+          "reason": null,
+          "before_total": 56.95,
+          "after_total": 61.51,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 10,
+          "next_week": 11,
+          "rule": null,
+          "reason": null,
+          "before_total": 61.51,
+          "after_total": 66.43,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 11,
+          "next_week": 12,
+          "rule": null,
+          "reason": null,
+          "before_total": 66.43,
+          "after_total": 49.82,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 12,
+          "next_week": 13,
+          "rule": 1,
+          "reason": "무릎에 심한 통증이, 발목에 통증이 최근 2주에 3번 이상 기록되어 다음 계획의 러닝을 모두 걷기로 바꾸고 심한 통증 부위를 쓰는 근력 동작을 제외했으며 총 시간을 20% 줄였어요.",
+          "before_total": 49.82,
+          "after_total": 39.86,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 13,
+          "next_week": 14,
+          "rule": null,
+          "reason": null,
+          "before_total": 39.86,
+          "after_total": 43.06,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 14,
+          "next_week": 15,
+          "rule": null,
+          "reason": null,
+          "before_total": 43.06,
+          "after_total": 46.5,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 15,
+          "next_week": 16,
+          "rule": null,
+          "reason": null,
+          "before_total": 46.5,
+          "after_total": 34.95,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 16,
+          "next_week": 17,
+          "rule": null,
+          "reason": null,
+          "before_total": 34.95,
+          "after_total": 37.73,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 17,
+          "next_week": 18,
+          "rule": null,
+          "reason": null,
+          "before_total": 37.73,
+          "after_total": 40.83,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 18,
+          "next_week": 19,
+          "rule": 2,
+          "reason": "무릎과 발목 통증이 최근 2주에 각각 3번 이상 기록되어 다음 계획을 걷기 위주로 바꾸고 총 시간을 20% 줄였어요.",
+          "before_total": 40.83,
+          "after_total": 32.66,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 19,
+          "next_week": 20,
+          "rule": null,
+          "reason": null,
+          "before_total": 32.66,
+          "after_total": 24.49,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 20,
+          "next_week": 21,
+          "rule": null,
+          "reason": null,
+          "before_total": 24.49,
+          "after_total": 26.41,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 21,
+          "next_week": 22,
+          "rule": null,
+          "reason": null,
+          "before_total": 26.41,
+          "after_total": 28.44,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 22,
+          "next_week": 23,
+          "rule": null,
+          "reason": null,
+          "before_total": 28.44,
+          "after_total": 30.72,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": false,
+          "rest_week": false
+        },
+        {
+          "week": 23,
+          "next_week": 24,
+          "rule": null,
+          "reason": null,
+          "before_total": 30.72,
+          "after_total": 23.07,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": true,
+          "rest_week": false
+        },
+        {
+          "week": 24,
+          "next_week": 25,
+          "rule": null,
+          "reason": null,
+          "before_total": 23.07,
+          "after_total": 24.9,
+          "before_longest_run": 0,
+          "after_longest_run": 0,
+          "recovery_week": false,
+          "rest_week": false
+        }
+      ]
+    }
+  ],
+  "priority_tests": [
+    {
+      "test": "rule 1 + rule 5 → 1",
+      "expected": 1,
+      "actual": 1,
       "passed": true
     },
     {
-      "rule": 2,
-      "weeks": 12,
-      "trigger_count": 12,
+      "test": "rule 2 + rule 3 → 2",
+      "expected": 2,
+      "actual": 2,
       "passed": true
     },
     {
-      "rule": 3,
-      "weeks": 12,
-      "trigger_count": 11,
+      "test": "rule 3 + rule 4 → 3",
+      "expected": 3,
+      "actual": 3,
       "passed": true
     },
     {
-      "rule": 4,
-      "weeks": 12,
-      "trigger_count": 12,
-      "passed": true
-    },
-    {
-      "rule": 5,
-      "weeks": 12,
-      "trigger_count": 11,
+      "test": "rule 1 + rule 2 + rule 4 → 1",
+      "expected": 1,
+      "actual": 1,
       "passed": true
     }
   ],
+  "multi_pain_tests": [
+    {
+      "case": "무릎·발목 반복 통증",
+      "rule": 2,
+      "reason": "무릎과 발목 통증이 최근 2주에 각각 3번 이상 기록되어 다음 계획을 걷기 위주로 바꾸고 총 시간을 20% 줄였어요.",
+      "before": 92.88,
+      "after": 74.3
+    },
+    {
+      "case": "무릎·발목 심한 통증",
+      "rule": 1,
+      "reason": "무릎과 발목에 심한 통증이 기록되어 다음 계획의 러닝을 모두 걷기로 바꾸고 해당 부위를 쓰는 근력 동작을 제외했어요.",
+      "before": 92.88,
+      "after": 92.88
+    },
+    {
+      "case": "무릎 심한 통증 + 발목 반복 통증",
+      "rule": 1,
+      "reason": "무릎에 심한 통증이, 발목에 통증이 최근 2주에 3번 이상 기록되어 다음 계획의 러닝을 모두 걷기로 바꾸고 심한 통증 부위를 쓰는 근력 동작을 제외했으며 총 시간을 20% 줄였어요.",
+      "before": 92.88,
+      "after": 74.3,
+      "severe_only_after": 92.88
+    },
+    {
+      "case": "세 부위 동시 기록",
+      "rule": "rest",
+      "reason": "여러 곳이 아프시네요. 이번 주는 쉬시고, 계속 아프면 병원에 한번 가보세요",
+      "before": 92.88,
+      "after": 0,
+      "resumed_after_rest": 69.66
+    },
+    {
+      "case": "같은 통증 기록 재감축 방지",
+      "first_rule": 2,
+      "next_week_rule_without_new_pain": null,
+      "next_week_rule_with_new_pain": 2
+    }
+  ],
+  "safety_violations": 0,
   "checks": [
-    "severe pain outranks low RPE",
-    "repeated pain outranks high RPE",
-    "high RPE outranks skipped",
-    "all changes have reasons",
+    "six continuous 24-week persona flows",
+    "trigger totals differ across personas",
     "weekly 10% and continuous-run 1.5x caps",
-    "recovery weeks preserved",
+    "max 3 non-consecutive runs",
+    "recovery weeks 70-80%",
+    "no negative minutes",
+    "walk between runs at least 1 minute",
+    "same pain logs reduce once",
+    "priority 1>5, 2>3, 3>4, 1>2>4",
+    "multi-area pain applies every area, conservative total",
+    "3+ areas becomes a full rest week",
+    "no multi-area hold",
     "repeated sessions add cumulative minutes",
     "extendPlan uses logs"
   ]
