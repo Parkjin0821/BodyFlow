@@ -2,7 +2,7 @@
   "checked": "2026-09-27",
   "page": "1.0 범위 (75:2)",
   "frames": 29,
-  "prototypeLinks": 45,
+  "prototypeLinks": 73,
   "broken": [],
   "outOfScope": [],
   "unreachable": [],
@@ -30,5 +30,12 @@
     "56:2": "D00 · 이전 오늘 (식단 중심) / Light",
     "63:127": "D00 · 이전 오늘 (식단 중심) / Dark"
   },
-  "note": "design-qa.json 과 qa/figma-final.json 은 2026-09-12 64화면 기준 기록으로 그대로 둔다."
+  "note": "design-qa.json 과 qa/figma-final.json 은 2026-09-12 64화면 기준 기록으로 그대로 둔다.",
+  "clippedCards": [],
+  "restructured": {
+    "12": "식단 그래프 (56:83, 63:427)",
+    "13": "몸 그래프 (56:90, 63:474)",
+    "14": "운동 그래프 (56:97, 63:520)",
+    "15": "더보기 (56:153, 63:738)"
+  }
 }
