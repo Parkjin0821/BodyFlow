@@ -8,7 +8,7 @@ const assert=require('assert'),fs=require('fs');
   await context.route('https://www.youtube.com/embed/**',r=>r.abort());
   await page.goto(base);await page.waitForFunction(()=>document.querySelectorAll('#content-card-list article').length===2);
   assert(!(await page.locator('#content-card-list').textContent()).includes('예시 대기 카드'));assert(!(await page.locator('#content-card-list').textContent()).includes('예시 반려 카드'));
-  await page.locator('[data-tab=plan]').click();await page.getByText('YouTube 공식 플레이어 열기',{exact:true}).click();assert.equal(await page.locator('#content-card-list iframe').getAttribute('src'),'https://www.youtube.com/embed/Example0001');assert.equal(await page.locator('video').count(),0);
+  await page.locator('[data-tab=more]').click();await page.getByText('YouTube 공식 플레이어 열기',{exact:true}).click();assert.equal(await page.locator('#content-card-list iframe').getAttribute('src'),'https://www.youtube.com/embed/Example0001');assert.equal(await page.locator('video').count(),0);
   assert((await page.locator('#exercise-instruction').textContent()).includes('예시 · BodyFlow 운동 지시문'));assert.equal(await page.locator('#external-content #exercise-instruction').count(),0);
   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
   const admin=await context.newPage();await admin.goto(base+'/admin');await admin.locator('#load-cards').click();await admin.getByText('운영 인증이 필요합니다.',{exact:true}).waitFor();assert.equal(await admin.locator('#admin-cards article').count(),0);

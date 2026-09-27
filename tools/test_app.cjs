@@ -7,7 +7,7 @@ const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors
 await page.goto('file:///'+path.resolve('BodyFlow.html').replaceAll('\\','/'));
 await page.waitForFunction(()=>document.querySelectorAll('#weight-chart [data-tip]').length>0);
 assert.equal(await page.locator('#calories-title').textContent(),'아직 섭취 기록이 없어요');
-await page.locator('[data-tab=progress]').click();await page.locator('[data-days="30"]').click();
+await page.locator('[data-tab=progress]').click();await page.locator('[data-group-tab=body]').click();await page.locator('[data-days="30"]').click();
 assert((await page.locator('#weight-sub').textContent()).startsWith('30일'));
 assert.equal(await page.locator('[data-table="weight-chart"] tr').count(),31);
 await page.locator('#weight-chart [data-tip]').first().click();
@@ -22,7 +22,7 @@ await page.locator('[data-tab=today]').click();await page.locator('#open-log').c
 const raw=await page.evaluate(()=>JSON.parse(localStorage.getItem('bodyflow.records.v1')));assert.equal(raw.records.length,1);assert.equal(raw.records[0].kcal,1681.1);
 await page.locator('#import-data').setInputFiles({name:'bad.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify({version:1,records:[{date:'2026-02-31',weight:64}]}))});assert((await page.locator('#storage-notice').textContent()).includes('오류'));
 assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('bodyflow.records.v1')).records.length),1);
-const download=page.waitForEvent('download');await page.locator('#export-data').click();const d=await download;const out=path.resolve('qa/export-test.json');fs.mkdirSync('qa',{recursive:true});await d.saveAs(out);assert.equal(JSON.parse(fs.readFileSync(out,'utf8')).records[0].kcal,1681.1);
+await page.locator('[data-tab=more]').click();const download=page.waitForEvent('download');await page.locator('#export-data').click();const d=await download;const out=path.resolve('qa/export-test.json');fs.mkdirSync('qa',{recursive:true});await d.saveAs(out);assert.equal(JSON.parse(fs.readFileSync(out,'utf8')).records[0].kcal,1681.1);
 await page.locator('[data-tab=progress]').click();await page.locator('#demo-mode').click();await page.evaluate(()=>{storageWarning='';render()});await page.locator('[data-tab=progress]').click();await page.screenshot({path:'qa/desktop-dark.png',fullPage:true});
 await page.locator('#theme').click();await page.screenshot({path:'qa/desktop-light.png',fullPage:true});
 await page.setViewportSize({width:390,height:844});await page.screenshot({path:'qa/mobile-light.png',fullPage:true});

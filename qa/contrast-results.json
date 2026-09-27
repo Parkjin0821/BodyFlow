@@ -1,18 +1,18 @@
 {
   "passed": true,
   "method": "WCAG relative luminance; visible HTML and SVG text across 2 presets × 2 themes × 3 tabs",
-  "checked": 1426,
+  "checked": 622,
   "uniquePairs": [
     {
       "preset": "senior_health",
       "theme": "light",
       "tab": "progress",
-      "element": "h2",
+      "element": "group-title",
       "foreground": "rgb(24,56,43)",
       "background": "rgb(242,244,236)",
       "ratio": 11.55,
       "threshold": 3,
-      "text": "기존 차트 7종"
+      "text": "식단 그래프"
     },
     {
       "preset": "senior_health",
@@ -40,23 +40,23 @@
       "preset": "senior_health",
       "theme": "light",
       "tab": "progress",
-      "element": "readout",
+      "element": "span",
       "foreground": "rgb(24,56,43)",
       "background": "rgb(224,232,218)",
       "ratio": 10.2,
       "threshold": 4.5,
-      "text": "수치를 누르거나 데이터 표에서 자세히 확인하세요."
+      "text": "나의 변화"
     },
     {
       "preset": "senior_health",
       "theme": "light",
       "tab": "progress",
-      "element": "export-data",
+      "element": "open-profile",
       "foreground": "rgb(24,56,43)",
       "background": "rgb(255,255,255)",
       "ratio": 12.81,
       "threshold": 4.5,
-      "text": "내 기록 JSON 내보내기"
+      "text": "프로필 수정"
     },
     {
       "preset": "senior_health",
@@ -73,12 +73,12 @@
       "preset": "senior_health",
       "theme": "light",
       "tab": "progress",
-      "element": "svg text",
+      "element": "chart-label",
       "foreground": "rgb(82,98,88)",
       "background": "rgb(255,255,255)",
       "ratio": 6.47,
       "threshold": 4.5,
-      "text": "한 눈금 = 10초/km · 짧을수록 빠른 구간"
+      "text": "RECIPE / ENERGY MIX · 식약처"
     },
     {
       "preset": "senior_health",
@@ -89,7 +89,7 @@
       "background": "rgb(255,255,255)",
       "ratio": 12.81,
       "threshold": 3,
-      "text": "같은 거리의 속도를 읽어요"
+      "text": "한 그릇을 이루는 에너지"
     },
     {
       "preset": "senior_health",
@@ -122,7 +122,18 @@
       "background": "rgb(24,56,43)",
       "ratio": 12.81,
       "threshold": 4.5,
-      "text": "7일"
+      "text": "식단"
+    },
+    {
+      "preset": "senior_health",
+      "theme": "light",
+      "tab": "progress",
+      "element": "mfds-badge",
+      "foreground": "rgb(28,112,69)",
+      "background": "rgb(255,255,255)",
+      "ratio": 6.08,
+      "threshold": 4.5,
+      "text": "식약처"
     },
     {
       "preset": "senior_health",
@@ -133,40 +144,18 @@
       "background": "rgb(224,232,218)",
       "ratio": 10.2,
       "threshold": 3,
-      "text": "예시 3 km 구간 기록은 9분 10초예요"
-    },
-    {
-      "preset": "senior_health",
-      "theme": "light",
-      "tab": "progress",
-      "element": "svg text",
-      "foreground": "rgb(28,112,69)",
-      "background": "rgb(255,255,255)",
-      "ratio": 6.08,
-      "threshold": 4.5,
-      "text": "9′10″3 km · 550 초/km"
-    },
-    {
-      "preset": "senior_health",
-      "theme": "light",
-      "tab": "progress",
-      "element": "svg text",
-      "foreground": "rgb(85,116,94)",
-      "background": "rgb(255,255,255)",
-      "ratio": 5.19,
-      "threshold": 4.5,
-      "text": "5마무리 · 걷기 5분"
+      "text": "아직 비교할 기록이 부족해요"
     },
     {
       "preset": "senior_health",
       "theme": "dark",
       "tab": "progress",
-      "element": "h2",
+      "element": "group-title",
       "foreground": "rgb(239,244,232)",
       "background": "rgb(16,21,16)",
       "ratio": 16.52,
       "threshold": 3,
-      "text": "기존 차트 7종"
+      "text": "식단 그래프"
     },
     {
       "preset": "senior_health",
@@ -194,23 +183,23 @@
       "preset": "senior_health",
       "theme": "dark",
       "tab": "progress",
-      "element": "readout",
+      "element": "span",
       "foreground": "rgb(239,244,232)",
       "background": "rgb(44,57,42)",
       "ratio": 10.88,
       "threshold": 4.5,
-      "text": "수치를 누르거나 데이터 표에서 자세히 확인하세요."
+      "text": "나의 변화"
     },
     {
       "preset": "senior_health",
       "theme": "dark",
       "tab": "progress",
-      "element": "export-data",
+      "element": "open-profile",
       "foreground": "rgb(239,244,232)",
       "background": "rgb(24,32,25)",
       "ratio": 14.91,
       "threshold": 4.5,
-      "text": "내 기록 JSON 내보내기"
+      "text": "프로필 수정"
     },
     {
       "preset": "senior_health",
@@ -227,12 +216,12 @@
       "preset": "senior_health",
       "theme": "dark",
       "tab": "progress",
-      "element": "svg text",
+      "element": "chart-label",
       "foreground": "rgb(178,190,172)",
       "background": "rgb(24,32,25)",
       "ratio": 8.62,
       "threshold": 4.5,
-      "text": "한 눈금 = 10초/km · 짧을수록 빠른 구간"
+      "text": "RECIPE / ENERGY MIX · 식약처"
     },
     {
       "preset": "senior_health",
@@ -243,7 +232,7 @@
       "background": "rgb(24,32,25)",
       "ratio": 14.91,
       "threshold": 3,
-      "text": "같은 거리의 속도를 읽어요"
+      "text": "한 그릇을 이루는 에너지"
     },
     {
       "preset": "senior_health",
@@ -276,7 +265,18 @@
       "background": "rgb(239,244,232)",
       "ratio": 14.91,
       "threshold": 4.5,
-      "text": "7일"
+      "text": "식단"
+    },
+    {
+      "preset": "senior_health",
+      "theme": "dark",
+      "tab": "progress",
+      "element": "mfds-badge",
+      "foreground": "rgb(164,233,92)",
+      "background": "rgb(24,32,25)",
+      "ratio": 11.42,
+      "threshold": 4.5,
+      "text": "식약처"
     },
     {
       "preset": "senior_health",
@@ -287,40 +287,18 @@
       "background": "rgb(44,57,42)",
       "ratio": 10.88,
       "threshold": 3,
-      "text": "예시 3 km 구간 기록은 9분 10초예요"
-    },
-    {
-      "preset": "senior_health",
-      "theme": "dark",
-      "tab": "progress",
-      "element": "svg text",
-      "foreground": "rgb(164,233,92)",
-      "background": "rgb(24,32,25)",
-      "ratio": 11.42,
-      "threshold": 4.5,
-      "text": "9′10″3 km · 550 초/km"
-    },
-    {
-      "preset": "senior_health",
-      "theme": "dark",
-      "tab": "progress",
-      "element": "svg text",
-      "foreground": "rgb(177,201,162)",
-      "background": "rgb(24,32,25)",
-      "ratio": 9.33,
-      "threshold": 4.5,
-      "text": "5마무리 · 걷기 5분"
+      "text": "아직 비교할 기록이 부족해요"
     },
     {
       "preset": "diet",
       "theme": "light",
       "tab": "progress",
-      "element": "h2",
+      "element": "group-title",
       "foreground": "rgb(24,56,43)",
       "background": "rgb(242,244,236)",
       "ratio": 11.55,
       "threshold": 3,
-      "text": "기존 차트 7종"
+      "text": "식단 그래프"
     },
     {
       "preset": "diet",
@@ -348,23 +326,23 @@
       "preset": "diet",
       "theme": "light",
       "tab": "progress",
-      "element": "readout",
+      "element": "span",
       "foreground": "rgb(24,56,43)",
       "background": "rgb(224,232,218)",
       "ratio": 10.2,
       "threshold": 4.5,
-      "text": "수치를 누르거나 데이터 표에서 자세히 확인하세요."
+      "text": "나의 변화"
     },
     {
       "preset": "diet",
       "theme": "light",
       "tab": "progress",
-      "element": "svg text",
+      "element": "open-profile",
       "foreground": "rgb(24,56,43)",
       "background": "rgb(255,255,255)",
       "ratio": 12.81,
       "threshold": 4.5,
-      "text": "기본 · 7일 이동평균선"
+      "text": "프로필 수정"
     },
     {
       "preset": "diet",
@@ -381,12 +359,12 @@
       "preset": "diet",
       "theme": "light",
       "tab": "progress",
-      "element": "svg text",
+      "element": "chart-label",
       "foreground": "rgb(82,98,88)",
       "background": "rgb(255,255,255)",
       "ratio": 6.47,
       "threshold": 4.5,
-      "text": "한 눈금 = 10초/km · 짧을수록 빠른 구간"
+      "text": "RECIPE / ENERGY MIX · 식약처"
     },
     {
       "preset": "diet",
@@ -397,7 +375,7 @@
       "background": "rgb(255,255,255)",
       "ratio": 12.81,
       "threshold": 3,
-      "text": "같은 거리의 속도를 읽어요"
+      "text": "한 그릇을 이루는 에너지"
     },
     {
       "preset": "diet",
@@ -419,7 +397,18 @@
       "background": "rgb(24,56,43)",
       "ratio": 12.81,
       "threshold": 4.5,
-      "text": "7일"
+      "text": "식단"
+    },
+    {
+      "preset": "diet",
+      "theme": "light",
+      "tab": "progress",
+      "element": "mfds-badge",
+      "foreground": "rgb(28,112,69)",
+      "background": "rgb(255,255,255)",
+      "ratio": 6.08,
+      "threshold": 4.5,
+      "text": "식약처"
     },
     {
       "preset": "diet",
@@ -430,40 +419,18 @@
       "background": "rgb(224,232,218)",
       "ratio": 10.2,
       "threshold": 3,
-      "text": "예시 3 km 구간 기록은 9분 10초예요"
-    },
-    {
-      "preset": "diet",
-      "theme": "light",
-      "tab": "progress",
-      "element": "svg text",
-      "foreground": "rgb(28,112,69)",
-      "background": "rgb(255,255,255)",
-      "ratio": 6.08,
-      "threshold": 4.5,
-      "text": "9′10″3 km · 550 초/km"
-    },
-    {
-      "preset": "diet",
-      "theme": "light",
-      "tab": "progress",
-      "element": "svg text",
-      "foreground": "rgb(85,116,94)",
-      "background": "rgb(255,255,255)",
-      "ratio": 5.19,
-      "threshold": 4.5,
-      "text": "5마무리 · 걷기 5분"
+      "text": "아직 비교할 기록이 부족해요"
     },
     {
       "preset": "diet",
       "theme": "dark",
       "tab": "progress",
-      "element": "h2",
+      "element": "group-title",
       "foreground": "rgb(239,244,232)",
       "background": "rgb(16,21,16)",
       "ratio": 16.52,
       "threshold": 3,
-      "text": "기존 차트 7종"
+      "text": "식단 그래프"
     },
     {
       "preset": "diet",
@@ -491,23 +458,23 @@
       "preset": "diet",
       "theme": "dark",
       "tab": "progress",
-      "element": "readout",
+      "element": "span",
       "foreground": "rgb(239,244,232)",
       "background": "rgb(44,57,42)",
       "ratio": 10.88,
       "threshold": 4.5,
-      "text": "수치를 누르거나 데이터 표에서 자세히 확인하세요."
+      "text": "나의 변화"
     },
     {
       "preset": "diet",
       "theme": "dark",
       "tab": "progress",
-      "element": "svg text",
+      "element": "open-profile",
       "foreground": "rgb(239,244,232)",
       "background": "rgb(24,32,25)",
       "ratio": 14.91,
       "threshold": 4.5,
-      "text": "기본 · 7일 이동평균선"
+      "text": "프로필 수정"
     },
     {
       "preset": "diet",
@@ -524,12 +491,12 @@
       "preset": "diet",
       "theme": "dark",
       "tab": "progress",
-      "element": "svg text",
+      "element": "chart-label",
       "foreground": "rgb(178,190,172)",
       "background": "rgb(24,32,25)",
       "ratio": 8.62,
       "threshold": 4.5,
-      "text": "한 눈금 = 10초/km · 짧을수록 빠른 구간"
+      "text": "RECIPE / ENERGY MIX · 식약처"
     },
     {
       "preset": "diet",
@@ -540,7 +507,7 @@
       "background": "rgb(24,32,25)",
       "ratio": 14.91,
       "threshold": 3,
-      "text": "같은 거리의 속도를 읽어요"
+      "text": "한 그릇을 이루는 에너지"
     },
     {
       "preset": "diet",
@@ -562,7 +529,18 @@
       "background": "rgb(239,244,232)",
       "ratio": 14.91,
       "threshold": 4.5,
-      "text": "7일"
+      "text": "식단"
+    },
+    {
+      "preset": "diet",
+      "theme": "dark",
+      "tab": "progress",
+      "element": "mfds-badge",
+      "foreground": "rgb(164,233,92)",
+      "background": "rgb(24,32,25)",
+      "ratio": 11.42,
+      "threshold": 4.5,
+      "text": "식약처"
     },
     {
       "preset": "diet",
@@ -573,29 +551,7 @@
       "background": "rgb(44,57,42)",
       "ratio": 10.88,
       "threshold": 3,
-      "text": "예시 3 km 구간 기록은 9분 10초예요"
-    },
-    {
-      "preset": "diet",
-      "theme": "dark",
-      "tab": "progress",
-      "element": "svg text",
-      "foreground": "rgb(164,233,92)",
-      "background": "rgb(24,32,25)",
-      "ratio": 11.42,
-      "threshold": 4.5,
-      "text": "9′10″3 km · 550 초/km"
-    },
-    {
-      "preset": "diet",
-      "theme": "dark",
-      "tab": "progress",
-      "element": "svg text",
-      "foreground": "rgb(177,201,162)",
-      "background": "rgb(24,32,25)",
-      "ratio": 9.33,
-      "threshold": 4.5,
-      "text": "5마무리 · 걷기 5분"
+      "text": "아직 비교할 기록이 부족해요"
     }
   ],
   "lightTextOnColoredBackgrounds": [
@@ -619,7 +575,7 @@
       "background": "rgb(24,56,43)",
       "ratio": 12.81,
       "threshold": 4.5,
-      "text": "7일"
+      "text": "식단"
     },
     {
       "preset": "diet",
@@ -641,7 +597,7 @@
       "background": "rgb(24,56,43)",
       "ratio": 12.81,
       "threshold": 4.5,
-      "text": "7일"
+      "text": "식단"
     }
   ],
   "failures": []
