@@ -3,9 +3,11 @@
   "data": "예시 기록",
   "checks": [
     "seven summaries above charts",
+    "example summaries match chart tables",
     "insufficient data copy",
     "yesterday shortcut",
     "eight-day return recommendation",
+    "own plan: last completed week minus one",
     "no onboarding reset",
     "delete confirmation",
     "undo delete",
