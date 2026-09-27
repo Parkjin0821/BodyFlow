@@ -51,7 +51,23 @@ def make_server(store, token, port=8765, food_catalog=None):
                 return self.reply(200, {'items': [item.public() for item in food_catalog.recent(ids)], 'served_from': 'cache'})
             if path == '/api/admin/cards':
                 return self.reply(200, store.list(True)) if self.authorized() else self.reply(401, {'error': '운영 인증이 필요합니다.'})
-            public = {'/': ROOT/'app/index.html', '/admin': ROOT/'app/content-admin.html'}
+            if path == '/api/admin/overview':
+                if not self.authorized():
+                    return self.reply(401, {'error': '운영 인증이 필요합니다.'})
+                # 키 값은 내보내지 않고 설정 여부만 알린다. 사용자 기록은 서버에 저장하지 않는다.
+                foods = food_catalog.cache.stats() if food_catalog else None
+                return self.reply(200, {'foods': foods, 'mfds_key_configured': bool(food_catalog and food_catalog.service_key), 'cards': store.stats(), 'user_records': {'stored_on_server': False}})
+            if path == '/api/admin/foods':
+                if not self.authorized():
+                    return self.reply(401, {'error': '운영 인증이 필요합니다.'})
+                if food_catalog is None:
+                    return self.reply(503, {'error': '식약처 음식 캐시가 설정되지 않았습니다.'})
+                query = parse_qs(parsed.query)
+                try:
+                    return self.reply(200, food_catalog.cache.page(query.get('query', [''])[0], query.get('offset', ['0'])[0], query.get('limit', ['20'])[0]))
+                except ValueError:
+                    return self.reply(400, {'error': '조회 범위를 확인하세요.'})
+            public = {'/': ROOT/'app/index.html', '/admin': ROOT/'app/content-admin.html'}  # 운영 관리: 현황·식약처 캐시·콘텐츠 승인
             for name in ('app.js', 'charts.js', 'presets.js', 'profile.js', 'insights.js', 'progress-groups.js', 'recovery.js', 'plan.js', 'style.css', 'ia.css', 'tokens.css', 'accessibility.css', 'logging.css', 'guidance.css', 'food-search.css', 'content-cards.js', 'content-admin.js', 'food-search.js', 'record.js', 'quick-recording.js', 'voice-parser.js', 'voice-recording.js', 'prescribe.js', 'adaptive-plan.js'):
                 public['/'+name] = ROOT/'app'/name
             public['/assets/chicken-tofu-bowl.png'] = ROOT/'assets/chicken-tofu-bowl.png'

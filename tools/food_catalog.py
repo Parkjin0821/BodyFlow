@@ -169,6 +169,23 @@ class FoodCache:
         found = {row[0]: self._row(row) for row in rows}
         return [found[item_id] for item_id in clean if item_id in found]
 
+    # 운영 화면용 읽기 전용 조회. 영양값을 고치는 쓰기 경로는 만들지 않는다(ADR-001).
+    def stats(self) -> dict:
+        with closing(self._connect()) as db:
+            count, oldest, newest = db.execute("SELECT COUNT(*), MIN(fetched_at), MAX(fetched_at) FROM foods").fetchone()
+        return {"count": count, "oldest_fetched_at": oldest, "newest_fetched_at": newest}
+
+    def page(self, query: str = "", offset: int = 0, limit: int = 20) -> dict:
+        query, offset, limit = query.strip(), max(0, int(offset)), min(max(1, int(limit)), 50)
+        where, args = ("WHERE name LIKE ?", [f"%{query}%"]) if query else ("", [])
+        with closing(self._connect()) as db:
+            total = db.execute(f"SELECT COUNT(*) FROM foods {where}", args).fetchone()[0]
+            rows = db.execute(
+                f"SELECT id,name,serving_size_g,kcal,carb_g,protein_g,fat_g,sodium_mg,source,source_id,fetched_at FROM foods {where} ORDER BY name, source_id LIMIT ? OFFSET ?",
+                [*args, limit, offset],
+            ).fetchall()
+        return {"total": total, "offset": offset, "limit": limit, "items": [asdict(self._row(row)) for row in rows]}
+
     def suggest(self, query: str, limit: int = 3) -> list[FoodItem]:
         query = query.strip().casefold()
         if not query:

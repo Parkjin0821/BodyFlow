@@ -96,6 +96,15 @@ class CardStore:
         with self.connect() as db:
             return [dict(r) for r in db.execute('SELECT * FROM cards' + ('' if admin else " WHERE status='approved'") + ' ORDER BY fetched_at DESC, id')]
 
+    def stats(self):
+        with self.connect() as db:
+            by_status = {status: 0 for status in sorted(STATUSES)}
+            for row in db.execute('SELECT status, COUNT(*) AS n FROM cards GROUP BY status'):
+                by_status[row['status']] = row['n']
+            by_source = {row['source']: row['n'] for row in db.execute('SELECT source, COUNT(*) AS n FROM cards GROUP BY source ORDER BY source')}
+            newest = db.execute('SELECT MAX(fetched_at) FROM cards').fetchone()[0]
+        return {'total': sum(by_status.values()), 'by_status': by_status, 'by_source': by_source, 'newest_fetched_at': newest}
+
     def moderate(self, identity, status):
         if status not in STATUSES:
             raise ValueError('잘못된 승인 상태입니다.')
