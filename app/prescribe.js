@@ -2,7 +2,9 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.BodyFlowPrescription=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
   const DAY_NUMBER={monday:1,tuesday:2,wednesday:3,thursday:4,friday:5,saturday:6,sunday:7};
   const round=value=>Math.round(value*100)/100;
-  const MIN_WALK=1;
+  // 계획 설정: 사용자는 안전 규칙보다 더 조심스러운 쪽으로만 고를 수 있다.
+  const GROWTH={standard:1.1,gentle:1.05},RECOVERY=.8,MIN_WALK_OPTIONS=[1,2],DEFAULT_SETTINGS={growth:'standard',minWalk:1};
+  function normalizeSettings(settings){const value=settings??DEFAULT_SETTINGS;if(!value||typeof value!=='object'||!Object.hasOwn(GROWTH,value.growth)||!MIN_WALK_OPTIONS.includes(value.minWalk))throw Error('계획 설정 값을 확인해 주세요.');return {growth:value.growth,minWalk:value.minWalk};}
   const clone=value=>JSON.parse(JSON.stringify(value));
 
   function validateProfile(profile){
@@ -24,7 +26,8 @@
   ];}
   function makeSession(day,type,warmup,blocks,cooldown,rpe,note){return {day,type,warmup_min:round(warmup),blocks, cooldown_min:round(cooldown),target_cadence:type==='run'?'170-180 spm':'해당 없음',target_rpe:rpe,note};}
 
-  function firstWeek(profile){
+  function firstWeek(profile,settings){
+    const {minWalk}=normalizeSettings(settings);
     const novice=profile.running_experience==='none'||profile.goal==='senior_health';
     const knee=profile.pain_areas.includes('knee');
     const bmi=profile.weight_kg/((profile.height_cm/100)**2);
@@ -32,8 +35,9 @@
     let run=novice?1:5,walk=novice?2:1,repeats=novice?4:3,warmup=5,cooldown=5,strengthMain=9;
     if(highBmi&&novice){run=.75;walk=2.25;repeats=3;warmup=4;cooldown=4;strengthMain=8;}
     if(knee){run=.5;walk=2.5;repeats=3;warmup=4;cooldown=4;strengthMain=7;}
+    if(walk<minWalk){run=Math.max(0,run+walk-minWalk);walk=minWalk;}
     const runRpe=profile.goal==='senior_health'||knee?'3-4':'4-5';
-    const runNote=knee?'무릎 불편을 반영해 달리기 비율과 총 시간을 낮췄어요. 불편이 커지면 걷기로 전환하세요.':novice?'달리기 1분과 걷기 2분을 번갈아 진행하세요.':'속도를 올리기보다 대화 가능한 RPE를 유지하세요.';
+    const runNote=knee?'무릎 불편을 반영해 달리기 비율과 총 시간을 낮췄어요. 불편이 커지면 걷기로 전환하세요.':novice?`달리기 ${run}분과 걷기 ${walk}분을 번갈아 진행하세요.`:'속도를 올리기보다 대화 가능한 RPE를 유지하세요.';
     return {week:1,isRecoveryWeek:false,sessions:[
       makeSession('monday','run',warmup,intervalBlocks(run,walk,repeats),cooldown,runRpe,runNote),
       makeSession('wednesday','strength',3,strengthBlocks(strengthMain),3,'3-4','맨몸 동작을 천천히 수행하고 통증이 생기는 동작은 중단하세요.'),
@@ -44,24 +48,34 @@
 
   function scaledBlock(block,factor){return {...block,minutes:round(block.minutes*factor)};}
   function activeWeek(week){return week.isRestWeek?week.resumeFrom:week;}
-  function nextWeek(previous,weekNumber){
-    if(previous.isRestWeek){const resumed=clone(previous.resumeFrom),recovery=weekNumber%4===0;return recovery?{...scaleWeekTo(resumed,round(weekMinutes(resumed)*.75)),week:weekNumber,isRecoveryWeek:true}:{...resumed,week:weekNumber,isRecoveryWeek:false};}
-    const recovery=weekNumber%4===0,factor=recovery?.75:1.08;
+  // 달리기 다음 걷기 구간이 최소 시간보다 짧으면 두 구간 합은 그대로 두고 달리기에서 옮긴다.
+  function enforceMinWalk(week,minWalk){for(const session of week.sessions){if(session.type!=='run')continue;const blocks=session.blocks;for(let i=0;i<blocks.length-1;i++)if(blocks[i].activity==='run'&&blocks[i+1].activity==='walk'&&blocks[i+1].minutes<minWalk-1e-9){const pair=round(blocks[i].minutes+blocks[i+1].minutes),walk=Math.min(pair,minWalk);blocks[i+1].minutes=round(walk);blocks[i].minutes=round(pair-walk);}}return week;}
+  const walkOnly=week=>({...week,sessions:week.sessions.map(session=>session.type==='run'?{...session,blocks:session.blocks.map(block=>block.activity==='run'?{...block,activity:'walk'}:block)}:session)});
+  function nextWeek(previous,weekNumber,settings){
+    const {growth,minWalk}=normalizeSettings(settings),recovery=weekNumber%4===0;
+    if(previous.isRestWeek){
+      const resumed=walkOnly(clone(previous.resumeFrom)),note='쉬는 주간 뒤라 달리기 없이 걷기로 이어가요.';
+      const base=recovery?scaleWeekTo(resumed,round(weekMinutes(resumed)*RECOVERY)):resumed;
+      return {week:weekNumber,isRecoveryWeek:recovery,sessions:base.sessions.map(session=>session.type==='run'?{...session,note}:session)};
+    }
+    const factor=recovery?RECOVERY:GROWTH[growth];
     const sessions=previous.sessions.map(session=>{
       let blocks=session.blocks.map(block=>scaledBlock(block,factor));
       if(!recovery&&session.type==='run'){
         for(let i=0;i<blocks.length-1;i++)if(blocks[i].activity==='run'&&blocks[i+1].activity==='walk'){
           const previousRun=session.blocks[i].minutes,total=blocks[i].minutes+blocks[i+1].minutes;
           const oldRatio=session.blocks[i].minutes/(session.blocks[i].minutes+session.blocks[i+1].minutes);
-          const proposed=Math.max(0,Math.min(total*(oldRatio+.04),previousRun*1.4,total-MIN_WALK));
+          const proposed=Math.max(0,Math.min(total*(oldRatio+.04),previousRun*1.4,total-minWalk));
           blocks[i].minutes=round(proposed);blocks[i+1].minutes=round(total-proposed);
         }
       }
       const note=recovery?'회복 주간이라 직전 주보다 전체 시간을 줄였어요.':session.note;
       return {...session,warmup_min:round(session.warmup_min*factor),blocks,cooldown_min:round(session.cooldown_min*factor),note};
     });
-    return {week:weekNumber,isRecoveryWeek:recovery,sessions};
+    return capTotal(enforceMinWalk({week:weekNumber,isRecoveryWeek:recovery,sessions},minWalk),weekMinutes(previous)*factor);
   }
+  // 구간별 반올림이 쌓여 주간 합계가 상한(증가 10%·회복 80%)을 넘지 않도록, 넘은 만큼을 달리기가 아닌 가장 긴 구간에서 뺀다.
+  function capTotal(week,limit){const cap=Math.floor(limit*100+1e-6)/100,over=round(weekMinutes(week)-cap);if(over<=0)return week;const blocks=week.sessions.flatMap(session=>session.blocks).filter(block=>block.activity!=='run');if(!blocks.length)return week;const largest=blocks.reduce((max,block)=>block.minutes>max.minutes?block:max);largest.minutes=round(largest.minutes-over);return week;}
 
   function assertWeekShape(week){
     if(!week||!Number.isInteger(week.week)||!Array.isArray(week.sessions))throw Error('완료 주차 형식을 확인해 주세요.');
@@ -71,12 +85,13 @@
     if(runDays.some((day,index)=>index&&day-runDays[index-1]===1))throw Error('러닝 세션을 연속된 날에 배치할 수 없습니다.');
   }
 
-  function generatePlan(profile){validateProfile(profile);const weeks=[firstWeek(profile)];for(let week=2;week<=4;week++)weeks.push(nextWeek(weeks.at(-1),week));return weeks;}
-  function extendPlan(completedWeeks,recentLogs){
+  function generatePlan(profile,settings){validateProfile(profile);const weeks=[firstWeek(profile,settings)];for(let week=2;week<=4;week++)weeks.push(nextWeek(weeks.at(-1),week,settings));return weeks;}
+  function firstRunMinutes(profile,settings){validateProfile(profile);return firstWeek(profile,settings).sessions.find(session=>session.type==='run').blocks.find(block=>block.activity==='run').minutes;}
+  function extendPlan(completedWeeks,recentLogs,options={}){
     if(!Array.isArray(completedWeeks)||!completedWeeks.length)throw Error('완료한 주차 계획이 필요합니다.');
     if(!Array.isArray(recentLogs))throw Error('최근 수행 기록은 배열이어야 합니다.');
     completedWeeks.forEach(assertWeekShape);
-    const result=[];let previous=clone(completedWeeks.at(-1));for(let i=0;i<4;i++){previous=i===0&&recentLogs.length?adjustNextWeek(previous,recentLogs).after:nextWeek(previous,previous.week+1);result.push(previous);}return result;
+    const result=[];let previous=clone(completedWeeks.at(-1));for(let i=0;i<4;i++){previous=i===0&&recentLogs.length?adjustNextWeek(previous,recentLogs,undefined,options).after:nextWeek(previous,previous.week+1,options.settings);result.push(previous);}return result;
   }
   function repeatWeek(plan,weekIndex){
     if(!Array.isArray(plan)||!Number.isInteger(weekIndex)||weekIndex<0||weekIndex>=plan.length)throw Error('반복할 주차를 확인해 주세요.');
@@ -97,9 +112,14 @@
   const FULL_REST_REASON='여러 곳이 아프시네요. 이번 주는 쉬시고, 계속 아프면 병원에 한번 가보세요';
   function averageRpe(logs){const values=logs.filter(log=>log.rpe!==null&&log.status!=='skipped').map(log=>log.rpe);return values.length?values.reduce((sum,value)=>sum+value,0)/values.length:null;}
   function addNote(week,reason){return {...week,sessions:week.sessions.map(session=>({...session,note:reason+' '+session.note}))};}
-  function adjustNextWeek(previous,logs,asOfDate){
+  const REENTRY_REASON='최근 2주 동안 통증 기록이 없어 처음 시작할 때의 달리기 시간으로 다시 달리기를 넣어요.';
+  // 통증 조정·쉬는 주간으로 걷기가 된 달리기 자리(짝수 위치의 걷기 구간)가 있는지
+  const hasConvertedRun=week=>week.sessions.some(session=>session.type==='run'&&session.blocks.some((block,index)=>index%2===0&&block.activity==='walk'&&session.blocks[index+1]?.activity==='walk'));
+  function reenterRuns(week,startRun,minWalk){for(const session of week.sessions){if(session.type!=='run')continue;const blocks=session.blocks;for(let i=0;i+1<blocks.length;i+=2)if(blocks[i].activity==='walk'&&blocks[i+1].activity==='walk'){const pair=round(blocks[i].minutes+blocks[i+1].minutes),run=Math.min(startRun,Math.max(0,pair-minWalk));blocks[i]={activity:'run',minutes:round(run)};blocks[i+1].minutes=round(pair-run);}}return week;}
+  function adjustNextWeek(previous,logs,asOfDate,options={}){
+    const settings=normalizeSettings(options.settings);
     assertWeekShape(previous);const validated=validateSessionLogs(logs),end=asOfDate??validated.at(-1)?.date;if(!validLogDate(end))throw Error('조정 기준 날짜가 필요합니다.');
-    const endTime=Date.parse(end+'T12:00:00Z'),age=log=>(endTime-Date.parse(log.date+'T12:00:00Z'))/86400000,recent=validated.filter(log=>age(log)>=0&&age(log)<14),current=recent.filter(log=>age(log)<7),prior=recent.filter(log=>age(log)>=7),baseline=nextWeek(previous,previous.week+1),reference=activeWeek(previous);
+    const endTime=Date.parse(end+'T12:00:00Z'),age=log=>(endTime-Date.parse(log.date+'T12:00:00Z'))/86400000,recent=validated.filter(log=>age(log)>=0&&age(log)<14),current=recent.filter(log=>age(log)<7),prior=recent.filter(log=>age(log)>=7),baseline=nextWeek(previous,previous.week+1,settings),reference=activeWeek(previous);
     const areaOrder=Object.keys(AREA_LABEL),byOrder=(a,b)=>areaOrder.indexOf(a)-areaOrder.indexOf(b),handled=previous.painHandledThrough,fresh=log=>!handled||log.date>handled,currentAreas=[...new Set(current.filter(fresh).flatMap(painsOf).map(item=>item.area))].sort(byOrder);
     const severeAreas=[...new Set(recent.filter(fresh).flatMap(painsOf).filter(item=>item.level==='severe').map(item=>item.area))].sort(byOrder),counts={};for(const log of recent)for(const item of painsOf(log))counts[item.area]=(counts[item.area]||0)+1;const freshAreas=new Set(recent.filter(fresh).flatMap(painsOf).map(item=>item.area)),repeatedAreas=Object.keys(counts).filter(area=>counts[area]>=3&&freshAreas.has(area)&&!severeAreas.includes(area)).sort(byOrder);
     const averages=[averageRpe(prior),averageRpe(current)],skipped=current.filter(log=>log.status==='skipped').length;let rule=null,reason='',after=clone(baseline);
@@ -108,12 +128,14 @@
     else if(severeAreas.length){rule=1;const target=repeatedAreas.length?Math.min(weekMinutes(reference),weekMinutes(after),round(weekMinutes(reference)*.8)):Math.min(weekMinutes(reference),weekMinutes(after));after=scaleWeekTo(after,target);after.sessions=after.sessions.map(session=>({...session,blocks:session.blocks.map(block=>session.type==='run'&&block.activity==='run'?{...block,activity:'walk'}:session.type==='strength'&&(MOVEMENT_AREAS[block.activity]||[]).some(area=>severeAreas.includes(area))?{...block,activity:'seated_hand_squeeze'}:block)}));reason=repeatedAreas.length?`${joinAreas(severeAreas)}에 심한 통증이, ${joinAreas(repeatedAreas)}에 통증이 최근 2주에 3번 이상 기록되어 다음 계획의 러닝을 모두 걷기로 바꾸고 심한 통증 부위를 쓰는 근력 동작을 제외했으며 총 시간을 20% 줄였어요.`:`${joinAreas(severeAreas)}에 심한 통증이 기록되어 다음 계획의 러닝을 모두 걷기로 바꾸고 해당 부위를 쓰는 근력 동작을 제외했어요.`;}
     else if(repeatedAreas.length){rule=2;after=walkFocus(scaleWeekTo(after,round(weekMinutes(reference)*.8)));reason=repeatedAreas.length===1?`${AREA_LABEL[repeatedAreas[0]]} 통증이 최근 2주에 ${counts[repeatedAreas[0]]}번 기록되어 다음 계획을 걷기 위주로 바꾸고 총 시간을 20% 줄였어요.`:`${joinAreas(repeatedAreas)} 통증이 최근 2주에 각각 3번 이상 기록되어 다음 계획을 걷기 위주로 바꾸고 총 시간을 20% 줄였어요.`;}
     else if(averages.every(value=>value!==null&&value>=8)){rule=3;after=scaleWeekTo(after,Math.min(weekMinutes(reference),weekMinutes(after)));reason='최근 2주 동안 힘든 정도가 계속 높아 다음 계획의 운동 시간을 늘리지 않았어요.';}
-    else if(current.length&&skipped>=current.length/2){rule=4;after={...clone(reference),week:baseline.week,isRecoveryWeek:baseline.isRecoveryWeek};if(after.isRecoveryWeek)after=scaleWeekTo(after,round(weekMinutes(reference)*.75));reason=after.isRecoveryWeek?'최근 세션의 절반 이상을 건너뛰어 같은 운동 구성으로 이어가되 회복 일정에 맞춰 시간을 줄였어요.':'최근 세션의 절반 이상을 건너뛰어 다음 계획을 같은 운동량으로 이어가요.';}
-    else if(averages.every(value=>value!==null&&value<=4)&&recent.every(log=>!log.pain)){rule=5;reason=after.isRecoveryWeek?'최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 예정된 회복 시간으로 이어가요.':'최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 10% 상한 안에서 천천히 늘려요.';}
+    else if(current.length&&skipped>=current.length/2){rule=4;after={...clone(reference),week:baseline.week,isRecoveryWeek:baseline.isRecoveryWeek};if(after.isRecoveryWeek)after=scaleWeekTo(after,round(weekMinutes(reference)*RECOVERY));reason=after.isRecoveryWeek?'최근 세션의 절반 이상을 건너뛰어 같은 운동 구성으로 이어가되 회복 일정에 맞춰 시간을 줄였어요.':'최근 세션의 절반 이상을 건너뛰어 다음 계획을 같은 운동량으로 이어가요.';}
+    else if(Number.isFinite(options.startRun)&&options.startRun>0&&hasConvertedRun(after)&&recent.some(log=>log.status!=='skipped')&&recent.every(log=>!log.pain)){rule='reentry';after=reenterRuns(after,options.startRun,settings.minWalk);reason=REENTRY_REASON;}
+    else if(averages.every(value=>value!==null&&value<=4)&&recent.every(log=>!log.pain)){rule=5;reason=after.isRecoveryWeek?'최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 예정된 회복 시간으로 이어가요.':(settings.growth==='gentle'?'최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 설정한 대로 주 5%씩 천천히 늘려요.':'최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 10% 상한 안에서 늘려요.');}
+    if(!after.isRestWeek)after=enforceMinWalk(after,settings.minWalk);
     if(rule==='rest'||rule===1||rule===2)after.painHandledThrough=end;
     if(reason)after=addNote(after,reason);const change=rule?{date:end,reason,before:clone(previous),after:clone(after)}:null;return {rule,reason,before:clone(previous),baseline,after,change,severeAreas,repeatedAreas,painAreas:currentAreas};
   }
   function cumulativeMinutes(logs,durations){return round(validateSessionLogs(logs).filter(log=>log.status!=='skipped').reduce((sum,log)=>sum+(Number.isFinite(durations?.[log.sessionId])&&durations[log.sessionId]>=0?durations[log.sessionId]:0),0));}
 
-  return {fullRestReason:FULL_REST_REASON,activeWeek,generatePlan,extendPlan,repeatWeek,sessionMinutes,weekMinutes,longestRun,adjustNextWeek,validateSessionLogs,cumulativeMinutes,activityLabels:ACTIVITY_LABEL,movementAreas:MOVEMENT_AREAS};
+  return {fullRestReason:FULL_REST_REASON,reentryReason:REENTRY_REASON,defaultSettings:DEFAULT_SETTINGS,normalizeSettings,firstRunMinutes,activeWeek,generatePlan,extendPlan,repeatWeek,sessionMinutes,weekMinutes,longestRun,adjustNextWeek,validateSessionLogs,cumulativeMinutes,activityLabels:ACTIVITY_LABEL,movementAreas:MOVEMENT_AREAS};
 });
