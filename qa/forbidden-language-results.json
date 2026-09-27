@@ -1,5 +1,6 @@
 {
   "passed": true,
-  "scope": "reference/ 및 qa/를 제외한 소스·설정·문서",
+  "scope": "reference/, qa/, 규칙 정의 파일(CLAUDE.md, AGENTS.md)을 제외한 소스·설정·문서",
+  "term_count": 8,
   "match_count": 0
 }
