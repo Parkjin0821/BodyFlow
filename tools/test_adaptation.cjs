@@ -98,6 +98,7 @@ const SETTINGS=[{growth:'standard',minWalk:1},{growth:'standard',minWalk:2},{gro
 const settingsSweep=SETTINGS.map(settings=>{const runs=PERSONAS.map(persona=>simulate(persona,settings));return {settings,violations:runs.flatMap(p=>p.safety_violations.map(v=>({persona:p.id,...v}))),trigger_totals:Object.fromEntries(runs.map(p=>[p.id,p.trigger_total])),week25_totals:Object.fromEntries(runs.map(p=>[p.id,p.timeline.at(-1).after_total])),end_longest_run:Object.fromEntries(runs.map(p=>[p.id,p.timeline.at(-1).after_longest_run]))}});
 const allViolations=settingsSweep.flatMap(sweep=>sweep.violations.map(v=>({settings:sweep.settings,...v})));
 if(allViolations.length){fs.writeFileSync('qa/adaptation-violations.json',JSON.stringify(allViolations,null,2));console.error('안전 규칙 위반 발견 — 중단:',JSON.stringify(allViolations,null,2));process.exit(1)}
+fs.rmSync('qa/adaptation-violations.json',{force:true});
 const totals=personas.map(p=>p.trigger_total);
 for(const id of ['P2','P6']){const p=personas.find(item=>item.id===id);assert(p.trigger_counts.reentry>=1,`${id}: 달리기 재개 제안 발생`);assert(p.timeline.at(-1).after_longest_run>0,`${id}: 24주 끝에 달리기가 돌아옴`);}
 for(const p of personas)assert(p.timeline.at(-1).after_total>=p.timeline[0].before_total*.95||Object.keys(p.trigger_counts).some(rule=>[1,2,'rest'].includes(isNaN(rule)?rule:+rule)),`${p.id}: 통증 조정이 없는데 24주 뒤 운동량이 줄면 안 됨`);assert(new Set(totals).size>1,'페르소나별 발동 횟수가 모두 같으면 시뮬레이션 오류');
