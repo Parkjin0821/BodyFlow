@@ -442,6 +442,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.BodyFlowPrescription=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
   const DAY_NUMBER={monday:1,tuesday:2,wednesday:3,thursday:4,friday:5,saturday:6,sunday:7};
   const round=value=>Math.round(value*100)/100;
+  const MIN_WALK=1;
   const clone=value=>JSON.parse(JSON.stringify(value));
 
   function validateProfile(profile){
@@ -492,7 +493,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         for(let i=0;i<blocks.length-1;i++)if(blocks[i].activity==='run'&&blocks[i+1].activity==='walk'){
           const previousRun=session.blocks[i].minutes,total=blocks[i].minutes+blocks[i+1].minutes;
           const oldRatio=session.blocks[i].minutes/(session.blocks[i].minutes+session.blocks[i+1].minutes);
-          const proposed=Math.min(total*(oldRatio+.04),previousRun*1.4);
+          const proposed=Math.max(0,Math.min(total*(oldRatio+.04),previousRun*1.4,total-MIN_WALK));
           blocks[i].minutes=round(proposed);blocks[i+1].minutes=round(total-proposed);
         }
       }
@@ -539,8 +540,8 @@ document.addEventListener('DOMContentLoaded',()=>{
   function adjustNextWeek(previous,logs,asOfDate){
     assertWeekShape(previous);const validated=validateSessionLogs(logs),end=asOfDate??validated.at(-1)?.date;if(!validLogDate(end))throw Error('조정 기준 날짜가 필요합니다.');
     const endTime=Date.parse(end+'T12:00:00Z'),age=log=>(endTime-Date.parse(log.date+'T12:00:00Z'))/86400000,recent=validated.filter(log=>age(log)>=0&&age(log)<14),current=recent.filter(log=>age(log)<7),prior=recent.filter(log=>age(log)>=7),baseline=nextWeek(previous,previous.week+1),reference=activeWeek(previous);
-    const areaOrder=Object.keys(AREA_LABEL),byOrder=(a,b)=>areaOrder.indexOf(a)-areaOrder.indexOf(b),currentAreas=[...new Set(current.flatMap(painsOf).map(item=>item.area))].sort(byOrder);
-    const severeAreas=[...new Set(recent.flatMap(painsOf).filter(item=>item.level==='severe').map(item=>item.area))].sort(byOrder),counts={};for(const log of recent)for(const item of painsOf(log))counts[item.area]=(counts[item.area]||0)+1;const repeatedAreas=Object.keys(counts).filter(area=>counts[area]>=3&&!severeAreas.includes(area)).sort(byOrder);
+    const areaOrder=Object.keys(AREA_LABEL),byOrder=(a,b)=>areaOrder.indexOf(a)-areaOrder.indexOf(b),handled=previous.painHandledThrough,fresh=log=>!handled||log.date>handled,currentAreas=[...new Set(current.filter(fresh).flatMap(painsOf).map(item=>item.area))].sort(byOrder);
+    const severeAreas=[...new Set(recent.filter(fresh).flatMap(painsOf).filter(item=>item.level==='severe').map(item=>item.area))].sort(byOrder),counts={};for(const log of recent)for(const item of painsOf(log))counts[item.area]=(counts[item.area]||0)+1;const freshAreas=new Set(recent.filter(fresh).flatMap(painsOf).map(item=>item.area)),repeatedAreas=Object.keys(counts).filter(area=>counts[area]>=3&&freshAreas.has(area)&&!severeAreas.includes(area)).sort(byOrder);
     const averages=[averageRpe(prior),averageRpe(current)],skipped=current.filter(log=>log.status==='skipped').length;let rule=null,reason='',after=clone(baseline);
     const walkFocus=week=>{for(const session of week.sessions.filter(session=>session.type==='run')){const main=session.blocks.reduce((sum,block)=>sum+block.minutes,0);let run=session.blocks.filter(block=>block.activity==='run').reduce((sum,block)=>sum+block.minutes,0);for(const block of session.blocks.filter(block=>block.activity==='run').sort((a,b)=>b.minutes-a.minutes)){if(run<=main*.25+1e-9)break;run-=block.minutes;block.activity='walk';}}return week;};
     if(currentAreas.length>=3){rule='rest';after={week:baseline.week,isRecoveryWeek:baseline.isRecoveryWeek,isRestWeek:true,sessions:[],resumeFrom:clone(reference)};reason=FULL_REST_REASON;}
@@ -549,6 +550,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     else if(averages.every(value=>value!==null&&value>=8)){rule=3;after=scaleWeekTo(after,Math.min(weekMinutes(reference),weekMinutes(after)));reason='최근 2주 동안 힘든 정도가 계속 높아 다음 계획의 운동 시간을 늘리지 않았어요.';}
     else if(current.length&&skipped>=current.length/2){rule=4;after={...clone(reference),week:baseline.week,isRecoveryWeek:baseline.isRecoveryWeek};if(after.isRecoveryWeek)after=scaleWeekTo(after,round(weekMinutes(reference)*.75));reason=after.isRecoveryWeek?'최근 세션의 절반 이상을 건너뛰어 같은 운동 구성으로 이어가되 회복 일정에 맞춰 시간을 줄였어요.':'최근 세션의 절반 이상을 건너뛰어 다음 계획을 같은 운동량으로 이어가요.';}
     else if(averages.every(value=>value!==null&&value<=4)&&recent.every(log=>!log.pain)){rule=5;reason=after.isRecoveryWeek?'최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 예정된 회복 시간으로 이어가요.':'최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 10% 상한 안에서 천천히 늘려요.';}
+    if(rule==='rest'||rule===1||rule===2)after.painHandledThrough=end;
     if(reason)after=addNote(after,reason);const change=rule?{date:end,reason,before:clone(previous),after:clone(after)}:null;return {rule,reason,before:clone(previous),baseline,after,change,severeAreas,repeatedAreas,painAreas:currentAreas};
   }
   function cumulativeMinutes(logs,durations){return round(validateSessionLogs(logs).filter(log=>log.status!=='skipped').reduce((sum,log)=>sum+(Number.isFinite(durations?.[log.sessionId])&&durations[log.sessionId]>=0?durations[log.sessionId]:0),0));}
