@@ -52,6 +52,6 @@ manifest['status']['charts']='actual template callbacks extracted; 7 types, 14 F
 (root/'design-manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf-8')
 files={str(p.relative_to(root/'reference/lieflat-charts')).replace('\\','/'):hashlib.sha256(p.read_bytes()).hexdigest() for p in (root/'reference/lieflat-charts').rglob('*') if p.is_file()}
 (root/'reference/source-hashes.json').write_text(json.dumps(files,ensure_ascii=False,indent=2),encoding='utf-8')
-for name,url in [('BodyFlow-Figma','https://www.figma.com/design/HgoIa0utwpiSp4pQlUPmTL?node-id=56-2'),('BodyFlow-Prototype','https://www.figma.com/proto/HgoIa0utwpiSp4pQlUPmTL?node-id=56-2&page-id=55-2&starting-point-node-id=56-2&scaling=scale-down')]:
+for name,url in [('BodyFlow-Figma','https://www.figma.com/design/HgoIa0utwpiSp4pQlUPmTL?node-id=83-135'),('BodyFlow-Prototype','https://www.figma.com/proto/HgoIa0utwpiSp4pQlUPmTL?node-id=29-45&page-id=75-2&starting-point-node-id=29-45&scaling=scale-down')]:
  (root/(name+'.url')).write_text('[InternetShortcut]\nURL='+url+'\n',encoding='utf-8')
 print('Documentation and provenance finalized')

@@ -1,8 +1,8 @@
 {
   "fileKey": "HgoIa0utwpiSp4pQlUPmTL",
-  "pageId": "55:2",
+  "pageId": "75:2",
   "light": {
-    "hub": "56:2",
+    "hub": "83:135",
     "plan": "56:6",
     "nutrition": "56:13",
     "discover": "56:20",
@@ -33,10 +33,11 @@
     "yogurt_log": "61:106",
     "yogurt_saved": "61:127",
     "salad_log": "61:149",
-    "salad_saved": "61:170"
+    "salad_saved": "61:170",
+    "hub_archived": "56:2"
   },
   "dark": {
-    "hub": "63:127",
+    "hub": "83:180",
     "plan": "63:157",
     "nutrition": "63:183",
     "discover": "63:218",
@@ -67,7 +68,8 @@
     "yogurt_log": "63:859",
     "yogurt_saved": "63:878",
     "salad_log": "63:900",
-    "salad_saved": "63:919"
+    "salad_saved": "63:919",
+    "hub_archived": "63:127"
   },
   "charts": [
     "macro",
@@ -84,7 +86,7 @@
     "salad": "8b68795257a226e1cf1f85bb8b6492fc82e1de46"
   },
   "status": {
-    "figma": "prototype",
+    "figma": "1.0 범위 29프레임(75:2), 보류 55프레임(75:3). 02 오늘은 2026-09-27 처방 중심으로 재설계, 이전 02는 보류로 이동",
     "naverApi": "credentials required; not connected",
     "adobe": "init failed; built-in imagegen used",
     "localApp": "working offline web app; chart/record subset, not all 64 Figma screens",
@@ -147,5 +149,7 @@
       "id": "70:1017",
       "name": "Lieflat · F5 · pace / dark"
     }
-  ]
+  ],
+  "holdPageId": "75:3",
+  "onboarding": "29:45"
 }

@@ -1,0 +1,34 @@
+{
+  "checked": "2026-09-27",
+  "page": "1.0 범위 (75:2)",
+  "frames": 29,
+  "prototypeLinks": 45,
+  "broken": [],
+  "outOfScope": [],
+  "unreachable": [],
+  "overlaps": [],
+  "forbiddenOrEstimateWording": [],
+  "flowStartingPoints": [
+    {
+      "nodeId": "29:45",
+      "name": "BodyFlow · 온보딩부터"
+    },
+    {
+      "nodeId": "83:135",
+      "name": "BodyFlow · Light / Full Flow"
+    },
+    {
+      "nodeId": "83:180",
+      "name": "BodyFlow · Dark / Full Flow"
+    }
+  ],
+  "redesigned": {
+    "02 · 오늘 / Light": "83:135",
+    "02 · 오늘 / Dark": "83:180"
+  },
+  "archivedToHold": {
+    "56:2": "D00 · 이전 오늘 (식단 중심) / Light",
+    "63:127": "D00 · 이전 오늘 (식단 중심) / Dark"
+  },
+  "note": "design-qa.json 과 qa/figma-final.json 은 2026-09-12 64화면 기준 기록으로 그대로 둔다."
+}

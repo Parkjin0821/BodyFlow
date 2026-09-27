@@ -46,11 +46,11 @@
 
 # BodyFlow 상세 화면 프로토타입
 
-[Figma 디자인 열기](https://www.figma.com/design/HgoIa0utwpiSp4pQlUPmTL?node-id=56-2)
+[Figma 디자인 열기](https://www.figma.com/design/HgoIa0utwpiSp4pQlUPmTL?node-id=83-135) · 2026-09-27 링크 갱신: `1.0 범위` 페이지의 새 `02 오늘`
 
-[라이트 앱 시연](https://www.figma.com/proto/HgoIa0utwpiSp4pQlUPmTL?node-id=56-2&page-id=55-2&starting-point-node-id=56-2&scaling=scale-down)
+[라이트 앱 시연](https://www.figma.com/proto/HgoIa0utwpiSp4pQlUPmTL?node-id=83-135&page-id=75-2&starting-point-node-id=83-135&scaling=scale-down) · [온보딩부터 시연](https://www.figma.com/proto/HgoIa0utwpiSp4pQlUPmTL?node-id=29-45&page-id=75-2&starting-point-node-id=29-45&scaling=scale-down)
 
-[다크 앱 시연](https://www.figma.com/proto/HgoIa0utwpiSp4pQlUPmTL?node-id=63-127&page-id=55-2&starting-point-node-id=63-127&scaling=scale-down)
+[다크 앱 시연](https://www.figma.com/proto/HgoIa0utwpiSp4pQlUPmTL?node-id=83-180&page-id=75-2&starting-point-node-id=83-180&scaling=scale-down)
 
 `Detail Flows · 2026.09` 페이지에 32종 화면을 라이트/다크로 각각 구성했습니다. 긴 화면은 프로토타입에서 세로로 스크롤합니다. 기존 Screens 페이지의 두 홈에도 새 상세 흐름으로 이동하는 버튼을 추가했습니다.
 
