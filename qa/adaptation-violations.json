@@ -1,0 +1,735 @@
+[
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 1
+    },
+    "persona": "P1",
+    "week": 8,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 76.22,
+    "after": 83.88
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 1
+    },
+    "persona": "P1",
+    "week": 12,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 81.18,
+    "after": 89.32
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 1
+    },
+    "persona": "P1",
+    "week": 17,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 94.98,
+    "after": 104.56
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 1
+    },
+    "persona": "P1",
+    "week": 24,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 97.94,
+    "after": 107.78
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 1
+    },
+    "persona": "P2",
+    "week": 8,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 88.66,
+    "after": 97.56
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 1
+    },
+    "persona": "P2",
+    "week": 12,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 68.59,
+    "after": 75.47
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 1
+    },
+    "persona": "P2",
+    "week": 18,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 88.32,
+    "after": 97.22
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 1
+    },
+    "persona": "P2",
+    "week": 21,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 85.48,
+    "after": 94.08
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 1
+    },
+    "persona": "P2",
+    "week": 22,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 94.08,
+    "after": 103.54
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 1
+    },
+    "persona": "P3",
+    "week": 10,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 73.14,
+    "after": 80.52
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 1
+    },
+    "persona": "P3",
+    "week": 12,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 64.44,
+    "after": 70.96
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 1
+    },
+    "persona": "P3",
+    "week": 20,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 73.1,
+    "after": 80.48
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 1
+    },
+    "persona": "P3",
+    "week": 22,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 88.52,
+    "after": 97.42
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 1
+    },
+    "persona": "P4",
+    "week": 9,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 88.58,
+    "after": 97.48
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 1
+    },
+    "persona": "P4",
+    "week": 13,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 85.74,
+    "after": 94.34
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 1
+    },
+    "persona": "P4",
+    "week": 14,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 94.34,
+    "after": 103.8
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 1
+    },
+    "persona": "P4",
+    "week": 17,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 91.36,
+    "after": 100.52
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 1
+    },
+    "persona": "P4",
+    "week": 21,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 97.34,
+    "after": 107.1
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 1
+    },
+    "persona": "P4",
+    "week": 24,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 94.26,
+    "after": 103.72
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 1
+    },
+    "persona": "P5",
+    "week": 8,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 88.58,
+    "after": 97.48
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 1
+    },
+    "persona": "P5",
+    "week": 12,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 94.34,
+    "after": 103.8
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 1
+    },
+    "persona": "P5",
+    "week": 14,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 114.12,
+    "after": 125.56
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 1
+    },
+    "persona": "P5",
+    "week": 17,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 110.44,
+    "after": 121.52
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 1
+    },
+    "persona": "P6",
+    "week": 6,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 73.22,
+    "after": 80.6
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 1
+    },
+    "persona": "P6",
+    "week": 8,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 64.46,
+    "after": 70.94
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 1
+    },
+    "persona": "P6",
+    "week": 9,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 70.94,
+    "after": 78.08
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 1
+    },
+    "persona": "P6",
+    "week": 16,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 53.2,
+    "after": 58.55
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 1
+    },
+    "persona": "P6",
+    "week": 17,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 58.55,
+    "after": 64.46
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 1
+    },
+    "persona": "P6",
+    "week": 20,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 41.25,
+    "after": 45.44
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 1
+    },
+    "persona": "P6",
+    "week": 22,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 50,
+    "after": 55.05
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 1
+    },
+    "persona": "P6",
+    "week": 24,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 43.98,
+    "after": 48.43
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P1",
+    "week": 8,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 76.22,
+    "after": 83.88
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P1",
+    "week": 12,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 81.18,
+    "after": 89.32
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P1",
+    "week": 13,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 89.32,
+    "after": 98.28
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P1",
+    "week": 17,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 95.06,
+    "after": 104.64
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P1",
+    "week": 22,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 111.5,
+    "after": 122.68
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P1",
+    "week": 24,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 98.18,
+    "after": 108.02
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P2",
+    "week": 8,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 88.64,
+    "after": 97.54
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P2",
+    "week": 18,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 88.37,
+    "after": 97.27
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P2",
+    "week": 21,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 85.52,
+    "after": 94.12
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P2",
+    "week": 22,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 94.12,
+    "after": 103.58
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P3",
+    "week": 10,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 73.14,
+    "after": 80.52
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P3",
+    "week": 12,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 64.44,
+    "after": 70.96
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P3",
+    "week": 20,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 73.1,
+    "after": 80.48
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P3",
+    "week": 22,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 88.52,
+    "after": 97.42
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P4",
+    "week": 9,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 88.58,
+    "after": 97.48
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P4",
+    "week": 13,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 85.74,
+    "after": 94.34
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P4",
+    "week": 14,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 94.34,
+    "after": 103.8
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P4",
+    "week": 17,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 91.36,
+    "after": 100.52
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P4",
+    "week": 21,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 97.34,
+    "after": 107.1
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P4",
+    "week": 24,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 94.26,
+    "after": 103.72
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P5",
+    "week": 8,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 88.58,
+    "after": 97.48
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P5",
+    "week": 12,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 94.34,
+    "after": 103.8
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P5",
+    "week": 14,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 114.12,
+    "after": 125.56
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P5",
+    "week": 17,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 110.44,
+    "after": 121.52
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P6",
+    "week": 6,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 73.22,
+    "after": 80.64
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P6",
+    "week": 8,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 64.51,
+    "after": 70.99
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P6",
+    "week": 9,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 70.99,
+    "after": 78.13
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P6",
+    "week": 16,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 53.29,
+    "after": 58.65
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P6",
+    "week": 17,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 58.65,
+    "after": 64.57
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P6",
+    "week": 20,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 41.34,
+    "after": 45.54
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P6",
+    "week": 22,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 50.1,
+    "after": 55.16
+  },
+  {
+    "settings": {
+      "growth": "standard",
+      "minWalk": 2
+    },
+    "persona": "P6",
+    "week": 24,
+    "rule": "주간 총 시간 증가 10% 초과",
+    "before": 44.08,
+    "after": 48.54
+  },
+  {
+    "settings": {
+      "growth": "gentle",
+      "minWalk": 1
+    },
+    "persona": "P1",
+    "week": 23,
+    "rule": "회복 주간 70~80% 벗어남",
+    "ratio": 0.8
+  },
+  {
+    "settings": {
+      "growth": "gentle",
+      "minWalk": 1
+    },
+    "persona": "P6",
+    "week": 19,
+    "rule": "회복 주간 70~80% 벗어남",
+    "ratio": 0.8
+  },
+  {
+    "settings": {
+      "growth": "gentle",
+      "minWalk": 2
+    },
+    "persona": "P1",
+    "week": 23,
+    "rule": "회복 주간 70~80% 벗어남",
+    "ratio": 0.8
+  },
+  {
+    "settings": {
+      "growth": "gentle",
+      "minWalk": 2
+    },
+    "persona": "P6",
+    "week": 19,
+    "rule": "회복 주간 70~80% 벗어남",
+    "ratio": 0.8
+  }
+]

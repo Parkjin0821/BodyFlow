@@ -12,6 +12,8 @@
     "non-severe rejection needs one confirmation",
     "multi-area pain adjusts both areas",
     "running chart follows own plan session",
+    "rest-week rejection warns once more",
+    "plan settings apply from next week and persist",
     "no discouraged wording",
     "no page errors"
   ]
