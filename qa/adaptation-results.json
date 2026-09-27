@@ -1,11 +1,10 @@
 {
   "passed": true,
   "data": "예시 수행 기록",
-  "method": "페르소나 6종이 각각 하나의 연속된 24주 기록 흐름을 가진다. 매주 그 주 계획의 세션마다 예시 기록을 만들고, 누적 기록으로 다음 주 조정을 계산한 뒤 조정안(달리기 재개 제안 포함)을 수락한 것으로 이어간다. 타임라인은 기본 설정(주 10%, 걷기 최소 1분), 안전 검사는 설정 4가지 조합 전체.",
+  "method": "페르소나 6종이 각각 하나의 연속된 24주 기록 흐름을 가진다. 매주 그 주 계획의 세션마다 예시 기록을 만들고, 누적 기록으로 다음 주 조정을 계산한 뒤 조정안(달리기 재개 제안 포함)을 수락한 것으로 이어간다. 타임라인은 기본 설정(주 10%, 걷기 최소 1분), 안전 검사는 걷기 최소 1분·2분 두 설정 모두.",
   "engine": {
     "growth": {
-      "standard": 1.1,
-      "gentle": 1.05
+      "standard": 1.1
     },
     "recovery": 0.8,
     "min_walk_options": [
@@ -2264,68 +2263,6 @@
         "P5": 6.73,
         "P6": 1.31
       }
-    },
-    {
-      "settings": {
-        "growth": "gentle",
-        "minWalk": 1
-      },
-      "violations": [],
-      "trigger_totals": {
-        "P1": 0,
-        "P2": 4,
-        "P3": 5,
-        "P4": 2,
-        "P5": 23,
-        "P6": 6
-      },
-      "week25_totals": {
-        "P1": 46.42,
-        "P2": 41.16,
-        "P3": 44.48,
-        "P4": 49.04,
-        "P5": 54.08,
-        "P6": 23.88
-      },
-      "end_longest_run": {
-        "P1": 0.9,
-        "P2": 1.89,
-        "P3": 2.12,
-        "P4": 2.45,
-        "P5": 2.8,
-        "P6": 0.69
-      }
-    },
-    {
-      "settings": {
-        "growth": "gentle",
-        "minWalk": 2
-      },
-      "violations": [],
-      "trigger_totals": {
-        "P1": 0,
-        "P2": 4,
-        "P3": 5,
-        "P4": 2,
-        "P5": 23,
-        "P6": 6
-      },
-      "week25_totals": {
-        "P1": 46.46,
-        "P2": 41.16,
-        "P3": 44.47,
-        "P4": 49,
-        "P5": 54.08,
-        "P6": 23.88
-      },
-      "end_longest_run": {
-        "P1": 0,
-        "P2": 0.89,
-        "P3": 1.11,
-        "P4": 1.44,
-        "P5": 1.8,
-        "P6": 0
-      }
     }
   ],
   "priority_tests": [
@@ -2409,7 +2346,7 @@
     "walk between runs at least the chosen minimum (recovery weeks included)",
     "run re-entry after 2 pain-free weeks at first-week length",
     "no running right after a rest week",
-    "settings sweep: 4 combinations, 0 violations",
+    "settings sweep: walk minimum 1 and 2 minutes, 0 violations",
     "same pain logs reduce once",
     "priority 1>5, 2>3, 3>4, 1>2>4",
     "multi-area pain applies every area, conservative total",

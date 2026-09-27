@@ -3,7 +3,8 @@
   const DAY_NUMBER={monday:1,tuesday:2,wednesday:3,thursday:4,friday:5,saturday:6,sunday:7};
   const round=value=>Math.round(value*100)/100;
   // 계획 설정: 사용자는 안전 규칙보다 더 조심스러운 쪽으로만 고를 수 있다.
-  const GROWTH={standard:1.1,gentle:1.05},RECOVERY=.8,MIN_WALK_OPTIONS=[1,2],DEFAULT_SETTINGS={growth:'standard',minWalk:1};
+  // 늘리는 속도는 기본(주 10%)만 둔다. 더 느린 속도는 회복 주간 80%와 겹쳐 4주마다 운동량이 줄어든다.
+  const GROWTH={standard:1.1},RECOVERY=.8,MIN_WALK_OPTIONS=[1,2],DEFAULT_SETTINGS={growth:'standard',minWalk:1};
   function normalizeSettings(settings){const value=settings??DEFAULT_SETTINGS;if(!value||typeof value!=='object'||!Object.hasOwn(GROWTH,value.growth)||!MIN_WALK_OPTIONS.includes(value.minWalk))throw Error('계획 설정 값을 확인해 주세요.');return {growth:value.growth,minWalk:value.minWalk};}
   const clone=value=>JSON.parse(JSON.stringify(value));
 
@@ -130,7 +131,7 @@
     else if(averages.every(value=>value!==null&&value>=8)){rule=3;after=scaleWeekTo(after,Math.min(weekMinutes(reference),weekMinutes(after)));reason='최근 2주 동안 힘든 정도가 계속 높아 다음 계획의 운동 시간을 늘리지 않았어요.';}
     else if(current.length&&skipped>=current.length/2){rule=4;after={...clone(reference),week:baseline.week,isRecoveryWeek:baseline.isRecoveryWeek};if(after.isRecoveryWeek)after=scaleWeekTo(after,round(weekMinutes(reference)*RECOVERY));reason=after.isRecoveryWeek?'최근 세션의 절반 이상을 건너뛰어 같은 운동 구성으로 이어가되 회복 일정에 맞춰 시간을 줄였어요.':'최근 세션의 절반 이상을 건너뛰어 다음 계획을 같은 운동량으로 이어가요.';}
     else if(Number.isFinite(options.startRun)&&options.startRun>0&&hasConvertedRun(after)&&recent.some(log=>log.status!=='skipped')&&recent.every(log=>!log.pain)){rule='reentry';after=reenterRuns(after,options.startRun,settings.minWalk);reason=REENTRY_REASON;}
-    else if(averages.every(value=>value!==null&&value<=4)&&recent.every(log=>!log.pain)){rule=5;reason=after.isRecoveryWeek?'최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 예정된 회복 시간으로 이어가요.':(settings.growth==='gentle'?'최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 설정한 대로 주 5%씩 천천히 늘려요.':'최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 10% 상한 안에서 늘려요.');}
+    else if(averages.every(value=>value!==null&&value<=4)&&recent.every(log=>!log.pain)){rule=5;reason=after.isRecoveryWeek?'최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 예정된 회복 시간으로 이어가요.':'최근 2주 동안 편안하게 수행했고 통증 기록이 없어 다음 계획을 10% 상한 안에서 늘려요.';}
     if(!after.isRestWeek)after=enforceMinWalk(after,settings.minWalk);
     if(rule==='rest'||rule===1||rule===2)after.painHandledThrough=end;
     if(reason)after=addNote(after,reason);const change=rule?{date:end,reason,before:clone(previous),after:clone(after)}:null;return {rule,reason,before:clone(previous),baseline,after,change,severeAreas,repeatedAreas,painAreas:currentAreas};
